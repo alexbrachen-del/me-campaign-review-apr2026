@@ -5,804 +5,428 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ME Campaign Performance Review — March & April 2026</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --surface2: #232733;
-    --border: #2e3345;
-    --text: #e4e6ed;
-    --text2: #9ca0af;
-    --accent: #6c8cff;
-    --red: #ff5c5c;
-    --red-bg: rgba(255,92,92,.12);
-    --green: #4ecb71;
-    --green-bg: rgba(78,203,113,.12);
-    --yellow: #fbbf24;
-    --yellow-bg: rgba(251,191,36,.12);
-    --blue: #60a5fa;
-    --blue-bg: rgba(96,165,250,.12);
-    --purple: #a78bfa;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    padding: 0;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+:root{--bg:#0f1117;--s1:#1a1d27;--s2:#232733;--bd:#2e3345;--t1:#e4e6ed;--t2:#9ca0af;--ac:#6c8cff;--r:#ff5c5c;--rb:rgba(255,92,92,.12);--g:#4ecb71;--gb:rgba(78,203,113,.12);--y:#fbbf24;--yb:rgba(251,191,36,.12);--b:#60a5fa;--bb:rgba(96,165,250,.12);--p:#a78bfa}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--t1);line-height:1.6}
+.wrap{max-width:1200px;margin:0 auto;padding:24px}
+.hdr{background:linear-gradient(135deg,#1e2235,#162040);border-bottom:1px solid var(--bd);padding:36px 24px 28px}
+.hdr-in{max-width:1200px;margin:0 auto}
+.hdr h1{font-size:26px;font-weight:700;letter-spacing:-.5px}
+.hdr .sub{font-size:14px;color:var(--t2);margin:4px 0 14px}
+.hdr .meta{display:flex;gap:20px;font-size:12px;color:var(--t2)}
 
-  /* Header */
-  .header {
-    background: linear-gradient(135deg, #1e2235 0%, #162040 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 40px 24px 32px;
-  }
-  .header-inner { max-width: 1200px; margin: 0 auto; }
-  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
-  .header .subtitle { font-size: 15px; color: var(--text2); margin-bottom: 16px; }
-  .header .meta { display: flex; gap: 24px; font-size: 13px; color: var(--text2); }
-  .header .meta span { display:flex; align-items:center; gap:6px; }
+/* Month tabs */
+.month-tabs{display:flex;gap:0;margin-bottom:24px;background:var(--s1);border-radius:10px;padding:4px;border:1px solid var(--bd)}
+.month-tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:600;color:var(--t2);background:none;border:none;border-radius:8px;cursor:pointer;transition:.2s}
+.month-tab:hover{color:var(--t1)}
+.month-tab.active{background:var(--ac);color:#fff}
+.month-panel{display:none}
+.month-panel.active{display:block}
 
-  /* Headline cards */
-  .headline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-  .headline-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 24px;
-    border-left: 4px solid;
-  }
-  .headline-card.march { border-left-color: var(--red); }
-  .headline-card.april { border-left-color: var(--yellow); }
-  .headline-card .month-label {
-    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 8px;
-  }
-  .headline-card.march .month-label { color: var(--red); }
-  .headline-card.april .month-label { color: var(--yellow); }
-  .headline-card p { font-size: 14px; color: var(--text2); line-height: 1.7; }
-  .headline-card strong { color: var(--text); }
+.card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:24px;margin-bottom:16px}
+.card h2{font-size:16px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.card h2 .n{background:var(--ac);color:#fff;font-size:10px;font-weight:700;width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center}
+.card .desc{font-size:12px;color:var(--t2);margin-bottom:16px}
+.card h3{font-size:13px;font-weight:600;color:var(--t2);margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--bd)}
 
-  /* Section */
-  .section {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 20px;
-  }
-  .section h2 {
-    font-size: 18px; font-weight: 700; margin-bottom: 4px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section h2 .num {
-    background: var(--accent);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    width: 24px; height: 24px;
-    border-radius: 6px;
-    display: inline-flex; align-items: center; justify-content: center;
-  }
-  .section .section-desc { font-size: 13px; color: var(--text2); margin-bottom: 20px; }
-  .section h3 {
-    font-size: 15px; font-weight: 600; margin: 24px 0 12px;
-    padding-bottom: 8px; border-bottom: 1px solid var(--border);
-    color: var(--text2);
-  }
-  .section h3:first-of-type { margin-top: 0; }
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}
+.kpi{background:var(--s2);border-radius:8px;padding:14px;text-align:center}
+.kpi .l{font-size:10px;color:var(--t2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.kpi .v{font-size:22px;font-weight:700}
+.kpi .d{font-size:10px;margin-top:1px}
+.kpi .d.r{color:var(--r)}.kpi .d.g{color:var(--g)}.kpi .d.y{color:var(--y)}
 
-  /* Key read callouts */
-  .callout {
-    background: var(--surface2);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px;
-    margin: 16px 0;
-    font-size: 13px;
-    color: var(--text2);
-    line-height: 1.7;
-  }
-  .callout strong { color: var(--text); }
-  .callout.red { border-left-color: var(--red); background: var(--red-bg); }
-  .callout.green { border-left-color: var(--green); background: var(--green-bg); }
-  .callout.yellow { border-left-color: var(--yellow); background: var(--yellow-bg); }
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+thead th{background:var(--s2);padding:8px 10px;text-align:left;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--t2);border-bottom:2px solid var(--bd);white-space:nowrap}
+tbody td{padding:8px 10px;border-bottom:1px solid var(--bd);vertical-align:middle}
+tbody tr:hover{background:rgba(108,140,255,.04)}
+.trow td{font-weight:700;background:var(--s2)}
 
-  /* Tables */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin: 12px 0;
-  }
-  thead th {
-    background: var(--surface2);
-    padding: 10px 12px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text2);
-    border-bottom: 2px solid var(--border);
-    white-space: nowrap;
-  }
-  tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
-  }
-  tbody tr:hover { background: rgba(108,140,255,.04); }
-  tbody tr:last-child td { border-bottom: none; }
-  .total-row td { font-weight: 700; background: var(--surface2); }
+.sig{font-weight:600;white-space:nowrap}
+.r{color:var(--r)}.g{color:var(--g)}.y{color:var(--y)}.b{color:var(--b)}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+.dot.r{background:var(--r)}.dot.g{background:var(--g)}.dot.y{background:var(--y)}
 
-  /* Signal dots */
-  .sig { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; white-space: nowrap; }
-  .sig.red { color: var(--red); }
-  .sig.green { color: var(--green); }
-  .sig.yellow { color: var(--yellow); }
-  .dot {
-    width: 8px; height: 8px; border-radius: 50%; display: inline-block;
-  }
-  .dot.red { background: var(--red); }
-  .dot.green { background: var(--green); }
-  .dot.yellow { background: var(--yellow); }
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;white-space:nowrap}
+.badge.sc{background:var(--gb);color:var(--g)}
+.badge.cp{background:var(--rb);color:var(--r)}
+.badge.mn{background:var(--yb);color:var(--y)}
+.badge.fl{background:var(--bb);color:var(--b)}
+.badge.st{background:rgba(251,191,36,.15);color:var(--y)}
+.badge.ps{background:var(--rb);color:var(--r)}
 
-  /* Badges */
-  .badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .badge.scale { background: var(--green-bg); color: var(--green); }
-  .badge.cap { background: var(--red-bg); color: var(--red); }
-  .badge.monitor { background: var(--yellow-bg); color: var(--yellow); }
-  .badge.filter { background: var(--blue-bg); color: var(--blue); }
-  .badge.star { background: rgba(251,191,36,.15); color: var(--yellow); }
-  .badge.pause { background: var(--red-bg); color: var(--red); }
+.co{background:var(--s2);border-left:3px solid var(--ac);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:12px;color:var(--t2);line-height:1.7}
+.co strong{color:var(--t1)}
+.co.r{border-left-color:var(--r);background:var(--rb)}
+.co.g{border-left-color:var(--g);background:var(--gb)}
+.co.y{border-left-color:var(--y);background:var(--yb)}
 
-  /* Bar charts */
-  .bar-chart { margin: 16px 0; }
-  .bar-row {
-    display: flex; align-items: center; gap: 12px; margin-bottom: 8px;
-  }
-  .bar-label { width: 160px; font-size: 12px; color: var(--text2); text-align: right; flex-shrink: 0; }
-  .bar-track {
-    flex: 1; height: 28px; background: var(--surface2); border-radius: 6px; position: relative; overflow: hidden;
-  }
-  .bar-fill {
-    height: 100%; border-radius: 6px; display: flex; align-items: center; padding-left: 10px;
-    font-size: 11px; font-weight: 600; color: #fff; min-width: 40px;
-    transition: width .3s ease;
-  }
-  .bar-fill.red { background: linear-gradient(90deg, var(--red), #ff7b7b); }
-  .bar-fill.green { background: linear-gradient(90deg, var(--green), #6ee08d); }
-  .bar-fill.yellow { background: linear-gradient(90deg, var(--yellow), #fcd34d); color: #1a1d27; }
-  .bar-fill.blue { background: linear-gradient(90deg, var(--accent), #8ba8ff); }
-  .bar-fill.purple { background: linear-gradient(90deg, var(--purple), #c4b5fd); }
+.bar-c{margin:12px 0}
+.bar-r{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.bar-l{width:150px;font-size:11px;color:var(--t2);text-align:right;flex-shrink:0}
+.bar-t{flex:1;height:24px;background:var(--s2);border-radius:5px;overflow:hidden;position:relative}
+.bar-f{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:8px;font-size:10px;font-weight:600;color:#fff;min-width:35px}
+.bar-f.r{background:linear-gradient(90deg,var(--r),#ff7b7b)}
+.bar-f.g{background:linear-gradient(90deg,var(--g),#6ee08d)}
+.bar-f.y{background:linear-gradient(90deg,var(--y),#fcd34d);color:#1a1d27}
+.bar-f.b{background:linear-gradient(90deg,var(--ac),#8ba8ff)}
+.bar-f.p{background:linear-gradient(90deg,var(--p),#c4b5fd)}
 
-  /* KPI cards row */
-  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
-  .kpi {
-    background: var(--surface2);
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-  }
-  .kpi .label { font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
-  .kpi .value { font-size: 26px; font-weight: 700; }
-  .kpi .sub { font-size: 11px; margin-top: 2px; }
-  .kpi .sub.red { color: var(--red); }
-  .kpi .sub.green { color: var(--green); }
-  .kpi .sub.yellow { color: var(--yellow); }
+.pill{display:inline-block;padding:2px 10px;border-radius:16px;font-size:11px;font-weight:500;border:1px solid var(--bd);background:var(--s2);color:var(--t2);margin:2px}
+.pill.top{border-color:var(--r);background:var(--rb);color:var(--r)}
+.pill .c{font-weight:700}
 
-  /* Reason pills */
-  .reason-pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
-  .pill {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
-    border: 1px solid var(--border);
-    background: var(--surface2);
-    color: var(--text2);
-    display: flex; align-items: center; gap: 6px;
-  }
-  .pill .cnt { font-weight: 700; color: var(--text); }
-  .pill.top { border-color: var(--red); background: var(--red-bg); color: var(--red); }
-  .pill.top .cnt { color: var(--red); }
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.col-card{background:var(--s2);border-radius:8px;padding:16px}
+.col-card h4{font-size:12px;font-weight:600;margin-bottom:10px;color:var(--t2)}
 
-  /* Comparison row */
-  .compare-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 16px 0;
-  }
-  .compare-card {
-    background: var(--surface2);
-    border-radius: 10px;
-    padding: 20px;
-  }
-  .compare-card h4 {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text2);
-  }
+/* Action items */
+.act{display:flex;gap:10px;margin:6px 0;font-size:12px}
+.act .num{background:var(--ac);color:#fff;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:2px}
+.act p{color:var(--t2);line-height:1.5}
+.act strong{color:var(--t1)}
 
-  /* CTA card */
-  .cta {
-    background: linear-gradient(135deg, #1a2744 0%, #1e2040 100%);
-    border: 1px solid var(--accent);
-    border-radius: 12px;
-    padding: 28px;
-    margin-top: 20px;
-  }
-  .cta h2 { color: var(--accent); font-size: 16px; margin-bottom: 8px; }
-  .cta p { font-size: 14px; color: var(--text2); line-height: 1.7; }
-  .cta strong { color: var(--text); }
+.cta{background:linear-gradient(135deg,#1a2744,#1e2040);border:1px solid var(--ac);border-radius:12px;padding:24px;margin-top:16px}
+.cta h2{color:var(--ac);font-size:15px;margin-bottom:6px}
+.cta p{font-size:13px;color:var(--t2);line-height:1.7}
+.cta strong{color:var(--t1)}
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .headline-grid, .compare-row { grid-template-columns: 1fr; }
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .bar-label { width: 100px; font-size: 11px; }
-    .header h1 { font-size: 22px; }
-    table { font-size: 12px; }
-    thead th, tbody td { padding: 8px 6px; }
-  }
-
-  /* Print */
-  @media print {
-    body { background: #fff; color: #111; }
-    .header { background: #fff; border-bottom: 2px solid #111; }
-    .section, .headline-card, .kpi, .compare-card { background: #fff; border-color: #ccc; }
-    .callout { background: #f5f5f5; }
-    thead th { background: #f0f0f0; }
-    .bar-track { background: #eee; }
-  }
-
-  /* Tabs for March/April */
-  .tab-bar { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
-  .tab-btn {
-    padding: 10px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text2);
-    background: none;
-    border: none;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: all .2s;
-  }
-  .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-
-  /* Small detail tables */
-  .detail-table { margin: 8px 0 16px; }
-  .detail-table td:first-child { color: var(--text2); width: 55%; }
-  .detail-table td:last-child { font-weight: 600; text-align: right; }
-
-  /* Insight block */
-  .insight {
-    font-size: 13px;
-    color: var(--text2);
-    font-style: italic;
-    margin: 8px 0 16px;
-    padding-left: 12px;
-    border-left: 2px solid var(--border);
-    line-height: 1.7;
-  }
-  .insight strong { color: var(--text); font-style: normal; }
-
-  .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
-  .rec-card {
-    background: var(--surface2);
-    border-radius: 10px;
-    padding: 18px;
-    border-top: 3px solid var(--border);
-  }
-  .rec-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
-  .rec-card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
-  .rec-card.mkt { border-top-color: var(--accent); }
-  .rec-card.sales { border-top-color: var(--purple); }
-  @media (max-width: 768px) { .rec-grid { grid-template-columns: 1fr; } }
+.faded{opacity:.45}
+@media(max-width:768px){.kpis{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.bar-l{width:90px;font-size:10px}.hdr h1{font-size:20px}table{font-size:11px}thead th,tbody td{padding:6px 5px}}
+@media print{body{background:#fff;color:#111}.hdr{background:#fff;border-bottom:2px solid #111}.card,.kpi,.col-card{background:#fff;border-color:#ccc}.co{background:#f5f5f5}thead th{background:#f0f0f0}.bar-t{background:#eee}}
+.foot{text-align:center;padding:24px 0 12px;font-size:10px;color:var(--t2)}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-inner">
-    <h1>ME Campaign Performance Review</h1>
-    <div class="subtitle">March & April 2026 | Google + Meta | Plan vs Actual | T2P Deep Dive</div>
-    <div class="meta">
-      <span>Alex Brachen, Associate Director — Middle East</span>
-      <span>April 10, 2026</span>
-      <span>Performance Review Meeting</span>
-    </div>
+<div class="hdr"><div class="hdr-in">
+  <h1>ME Campaign Performance Review</h1>
+  <div class="sub">Google + Meta | Plan vs Actual | Full Funnel + T2P Deep Dive</div>
+  <div class="meta"><span>Alex Brachen, AD — Middle East</span><span>April 10, 2026</span><span>Performance Marketing Review</span></div>
+</div></div>
+
+<div class="wrap">
+
+<!-- MONTH TABS -->
+<div class="month-tabs">
+  <button class="month-tab active" onclick="showMonth('mar')">March 2026 — Full Month</button>
+  <button class="month-tab" onclick="showMonth('apr')">April 2026 — MTD (10 Days)</button>
+</div>
+
+<!-- ============================================================ -->
+<!-- MARCH PANEL -->
+<!-- ============================================================ -->
+<div class="month-panel active" id="panel-mar">
+
+<!-- MARCH: HEADLINE -->
+<div class="co r">
+  <strong>Bottom line:</strong> QLs were 92% of plan. Trial Done hit plan. But only 51 enrolled vs 74 plan — <strong>T2P collapsed to 24% (vs 39% plan)</strong>. #1 reason: "Fee High" (30% of non-paid TDs). ₹7L in campaigns never launched. Revenue miss = ₹16L.
+</div>
+
+<!-- MARCH: KPIs -->
+<div class="card">
+  <h2><span class="n">1</span> March Top-Line — Plan vs Actual</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Spend</div><div class="v" style="color:var(--r)">₹23.9L</div><div class="d r">-20% vs ₹30L plan</div></div>
+    <div class="kpi"><div class="l">QLs</div><div class="v" style="color:var(--y)">464</div><div class="d y">-8% vs 506 plan</div></div>
+    <div class="kpi"><div class="l">CPQL</div><div class="v" style="color:var(--g)">₹7,022</div><div class="d g">-7% better</div></div>
+    <div class="kpi"><div class="l">Trial Done</div><div class="v" style="color:var(--g)">190</div><div class="d g">+1% vs 188 plan</div></div>
+    <div class="kpi"><div class="l">CPT</div><div class="v" style="color:var(--g)">₹17,685</div><div class="d g">-14% better</div></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="l">QL-TD%</div><div class="v" style="color:var(--g)">41%</div><div class="d g">+4pp vs 37% plan</div></div>
+    <div class="kpi"><div class="l">T2P (TD→Paid)</div><div class="v" style="color:var(--r)">24%</div><div class="d r">-15pp vs 39% plan</div></div>
+    <div class="kpi"><div class="l">Enrolled</div><div class="v" style="color:var(--r)">51</div><div class="d r">-31% vs 74 plan</div></div>
+    <div class="kpi"><div class="l">Revenue</div><div class="v" style="color:var(--r)">₹41L</div><div class="d r">-28% vs ₹57L plan</div></div>
+    <div class="kpi"><div class="l">ROAS</div><div class="v" style="color:var(--r)">0.8x</div><div class="d r">Below 1.0 target</div></div>
   </div>
 </div>
 
-<div class="container">
-
-<!-- HEADLINE CARDS -->
-<div class="headline-grid">
-  <div class="headline-card march">
-    <div class="month-label">March 2026 — Full Month</div>
-    <p>We generated <strong>86% of planned QLs</strong> with 80% spend — marketing efficiency was fine. The <strong>₹16L revenue miss</strong> came entirely from T2P collapse: <strong>24% actual vs 39% plan</strong>. The #1 reason leads didn't convert? <strong>"Fee High" — 30% of all non-paid TDs.</strong></p>
-  </div>
-  <div class="headline-card april">
-    <div class="month-label">April 2026 — MTD (10 Days)</div>
-    <p>QL pace is <strong>ahead of plan</strong> (168 vs 159 prorated). But T2P is tracking even worse — <strong>only 13%</strong> (4 paid from 30 TDs). The #1 reason shifted to <strong>"Decision Pending" (35%)</strong> — leads are stalling, not objecting. Post-trial urgency is the gap.</p>
+<!-- MARCH: CHANNEL PLAN vs ACTUAL -->
+<div class="card">
+  <h2><span class="n">2</span> Channel-Level Plan vs Actual</h2>
+  <table>
+    <thead><tr><th>Channel</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>CPQL</th><th>TD</th><th>QL-TD%</th><th>CPT</th><th>Paid</th><th>T2P%</th><th>Rev</th><th>ABV</th><th>ROAS</th><th>CAC</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Meta</strong></td><td>₹25.5L</td><td>₹19.8L</td><td>333</td><td>269</td><td>₹7,378</td><td>105</td><td><span class="sig g">39%</span></td><td>₹18,857</td><td>21</td><td><span class="sig r">20%</span></td><td>₹18L</td><td>₹88K</td><td>0.93x</td><td>₹94K</td></tr>
+      <tr><td><strong>Google</strong></td><td>₹4.5L</td><td>₹6.3L</td><td>63</td><td>119</td><td>₹5,336</td><td>43</td><td>36%</td><td>₹14,651</td><td>11</td><td><span class="sig r">26%</span></td><td>₹4L</td><td>₹35K</td><td><span class="sig r">0.61x</span></td><td>₹57K</td></tr>
+      <tr><td><strong>Referrals</strong></td><td>—</td><td>—</td><td>40</td><td>24</td><td>₹0</td><td>14</td><td>58%</td><td>₹0</td><td>7</td><td><span class="sig y">50%</span></td><td>₹8L</td><td>₹109K</td><td>∞</td><td>₹0</td></tr>
+      <tr><td><strong>Organic</strong></td><td>—</td><td>—</td><td>50</td><td>35</td><td>₹0</td><td>18</td><td>51%</td><td>₹0</td><td>7</td><td><span class="sig g">39%</span></td><td>₹7L</td><td>₹97K</td><td>∞</td><td>₹0</td></tr>
+      <tr><td><strong>Others</strong></td><td>—</td><td>—</td><td>20</td><td>17</td><td>—</td><td>10</td><td>59%</td><td>—</td><td>5</td><td><span class="sig g">50%</span></td><td>₹4L</td><td>₹80K</td><td>—</td><td>—</td></tr>
+      <tr class="trow"><td><strong>TOTAL</strong></td><td>₹30.0L</td><td>₹26.1L</td><td>506</td><td>464</td><td>₹7,022</td><td>190</td><td>41%</td><td>₹17,685</td><td>51</td><td><span class="sig r">24%</span></td><td>₹41L</td><td>₹81K</td><td>0.8x</td><td>₹47K</td></tr>
+    </tbody>
+  </table>
+  <div class="co">
+    <strong>Paid channels T2P (20% Meta, 26% Google) is half of organic (39-50%).</strong> Google ABV collapsed to ₹35K (plan ₹70K) — ACs defaulted to monthly pitch instead of 12-month. This alone cost ₹6L+ in revenue. Referrals had highest ABV (₹109K) at zero CAC.
   </div>
 </div>
 
-<!-- SECTION 1: MARCH PLAN vs ACTUAL -->
-<div class="section">
-  <h2><span class="num">1</span> March — Plan vs Actual</h2>
-  <div class="section-desc">Full month performance against business plan</div>
+<!-- MARCH: GOOGLE CAMPAIGN PLAN vs ACTUAL -->
+<div class="card">
+  <h2><span class="n">3</span> Campaign-Level Plan vs Actual</h2>
 
-  <div class="kpi-grid">
-    <div class="kpi">
-      <div class="label">Spend</div>
-      <div class="value" style="color:var(--red)">₹23.9L</div>
-      <div class="sub red">-20% vs ₹30L plan</div>
-    </div>
-    <div class="kpi">
-      <div class="label">QLs (All)</div>
-      <div class="value" style="color:var(--yellow)">464</div>
-      <div class="sub yellow">-8% vs 506 plan</div>
-    </div>
-    <div class="kpi">
-      <div class="label">T2P Rate</div>
-      <div class="value" style="color:var(--red)">24%</div>
-      <div class="sub red">-15pp vs 39% plan</div>
-    </div>
-    <div class="kpi">
-      <div class="label">Revenue</div>
-      <div class="value" style="color:var(--red)">₹41L</div>
-      <div class="sub red">-28% vs ₹57L plan</div>
-    </div>
-  </div>
-
-  <h3>Channel-Level Plan vs Actual</h3>
+  <h3>Google Campaigns</h3>
   <table>
-    <thead>
-      <tr><th>Channel</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>TD</th><th>Paid</th><th>T2P%</th><th>Signal</th></tr>
-    </thead>
+    <thead><tr><th>Campaign</th><th>Plan Spend</th><th>Actual</th><th>Plan QL</th><th>Actual QL</th><th>CPQL</th><th>QL-TD%</th><th>CPT</th><th>Paid</th><th>T2P%</th><th>Verdict</th></tr></thead>
     <tbody>
-      <tr><td><strong>Meta</strong></td><td>₹25.5L</td><td>₹19.8L</td><td>333</td><td>269</td><td>105</td><td>21</td><td><span class="sig red">19%</span></td><td><span class="dot red"></span></td></tr>
-      <tr><td><strong>Google</strong></td><td>₹4.5L</td><td>₹6.3L</td><td>63</td><td>119</td><td>43</td><td>11</td><td><span class="sig red">18%</span></td><td><span class="dot red"></span></td></tr>
-      <tr><td><strong>Referrals</strong></td><td>—</td><td>—</td><td>40</td><td>24</td><td>14</td><td>7</td><td><span class="sig yellow">30%</span></td><td><span class="dot yellow"></span></td></tr>
-      <tr><td><strong>Organic</strong></td><td>—</td><td>—</td><td>50</td><td>35</td><td>18</td><td>7</td><td><span class="sig green">50%</span></td><td><span class="dot green"></span></td></tr>
-      <tr><td><strong>Others</strong></td><td>—</td><td>—</td><td>20</td><td>17</td><td>10</td><td>5</td><td><span class="sig green">40%</span></td><td><span class="dot green"></span></td></tr>
-      <tr class="total-row"><td><strong>TOTAL</strong></td><td>₹30.0L</td><td>₹26.1L</td><td>506</td><td>464</td><td>190</td><td>51</td><td><span class="sig red">24%</span></td><td><span class="dot red"></span></td></tr>
+      <tr><td>Brand Keywords</td><td>₹2.5L</td><td>₹2.5L</td><td>35</td><td>49</td><td><span class="sig g">₹5,034</span></td><td><span class="sig g">59%</span></td><td><span class="sig g">₹8,506</span></td><td>6</td><td>21%</td><td><span class="badge st">STAR</span></td></tr>
+      <tr><td>Generic KWs</td><td>₹2.0L</td><td>₹2.9L</td><td>28</td><td>49</td><td>₹5,918</td><td><span class="sig r">18%</span></td><td><span class="sig r">₹32,732</span></td><td>1</td><td><span class="sig r">12%</span></td><td><span class="badge cp">OVERSPENT</span></td></tr>
     </tbody>
   </table>
 
-  <div class="callout red">
-    <strong>Key read:</strong> Paid channels (Meta + Google) have the worst T2P at 19% and 18%. Organic/Referrals convert 2-3x better. Paid leads have a fundamentally different objection profile — "Fee High" is the dominant reason.
+  <h3>Meta Campaigns</h3>
+  <table>
+    <thead><tr><th>Campaign</th><th>Plan Spend</th><th>Actual</th><th>Plan QL</th><th>Actual QL</th><th>Plan TD%</th><th>Actual TD%</th><th>Plan CPT</th><th>Actual CPT</th><th>Paid</th><th>T2P%</th><th>Verdict</th></tr></thead>
+    <tbody>
+      <tr><td>Dubai Loc 2 (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>36</td><td>40</td><td>33%</td><td><span class="sig g">40%</span></td><td>₹21,212</td><td><span class="sig g">₹14,188</span></td><td>3</td><td>25%</td><td><span class="badge sc">STRONG</span></td></tr>
+      <tr><td>Dubai Loc 2 (LP)</td><td>₹3.0L</td><td>₹4.7L</td><td>37</td><td>45</td><td>47%</td><td><span class="sig r">33%</span></td><td>₹17,399</td><td><span class="sig r">₹31,598</span></td><td>—</td><td>—</td><td><span class="badge cp">OVERSPENT</span></td></tr>
+      <tr><td>MEA_Int-Female (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>35</td><td>36</td><td>35%</td><td><span class="sig r">22%</span></td><td>₹20,260</td><td><span class="sig r">₹28,380</span></td><td>1</td><td>25%</td><td><span class="badge cp">FUNNEL BROKE</span></td></tr>
+      <tr><td>Interest_Maths (IF)</td><td>₹3.5L</td><td>₹2.8L</td><td>48</td><td>41</td><td>36%</td><td><span class="sig r">22%</span></td><td>₹19,865</td><td><span class="sig r">₹31,585</span></td><td>3</td><td><span class="sig g">43%</span></td><td><span class="badge sc">BEST T2P</span></td></tr>
+      <tr><td>Int_Premium_Brands</td><td>₹1.5L</td><td>₹1.5L</td><td>21</td><td>22</td><td>32%</td><td><span class="sig r">9%</span></td><td>₹21,605</td><td><span class="sig r">₹75,504</span></td><td>0</td><td><span class="sig r">0%</span></td><td><span class="badge ps">PAUSE</span></td></tr>
+      <tr><td>Advantage+Non-OTP</td><td>₹2.5L</td><td>₹0.8L</td><td>36</td><td>10</td><td>38%</td><td><span class="sig g">40%</span></td><td>₹18,667</td><td>₹20,887</td><td>0</td><td>0%</td><td><span class="badge mn">STARVED</span></td></tr>
+      <tr><td>High_ROAS_Creative</td><td>₹3.0L</td><td>₹4.0L</td><td>37</td><td>41</td><td>38%</td><td><span class="sig r">32%</span></td><td>₹21,744</td><td><span class="sig r">₹30,722</span></td><td>1</td><td><span class="sig r">8%</span></td><td><span class="badge cp">TRAP</span></td></tr>
+      <tr class="faded"><td>Dubai-Premium-Aud-3</td><td>₹3.0L</td><td>₹0</td><td>39</td><td>0</td><td>37%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge ps">NEVER RAN</span></td></tr>
+      <tr class="faded"><td>HNIs Targeting</td><td>₹2.0L</td><td>₹0</td><td>13</td><td>0</td><td>45%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge ps">NEVER RAN</span></td></tr>
+      <tr class="faded"><td>CTF_Parents</td><td>₹2.0L</td><td>₹0</td><td>30</td><td>0</td><td>19%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><span class="badge ps">NEVER RAN</span></td></tr>
+    </tbody>
+  </table>
+  <div class="co r"><strong>₹7L in planned campaigns never launched.</strong> Budget leaked into Dubai Loc 2 LP (+₹1.7L overspend) and High_ROAS_Creative (+₹1L overspend) — both underperformed. Advantage+Non-OTP had best QL-TD% (40%) but got only ₹0.8L of ₹2.5L planned.</div>
+</div>
+
+<!-- MARCH: T2P DEEP DIVE -->
+<div class="card">
+  <h2><span class="n">4</span> T2P Deep Dive — 123 TDs → 30 Paid (24%)</h2>
+
+  <h3>Why 93 TDs Did Not Convert</h3>
+  <div class="bar-c">
+    <div class="bar-r"><div class="bar-l">Fee High</div><div class="bar-t"><div class="bar-f r" style="width:74%">28 (30%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">(No reason logged)</div><div class="bar-t"><div class="bar-f y" style="width:58%">22 (24%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Non-Responsive</div><div class="bar-t"><div class="bar-f b" style="width:21%">8 (9%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Decision Pending</div><div class="bar-t"><div class="bar-f b" style="width:18%">7 (8%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Child Too Young</div><div class="bar-t"><div class="bar-f p" style="width:13%">5 (5%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">War / Travel</div><div class="bar-t"><div class="bar-f p" style="width:11%">4 (4%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Interested to Enrol</div><div class="bar-t"><div class="bar-f g" style="width:11%">4 (4%)</div></div></div>
   </div>
 
-  <h3>Google — Campaign Plan vs Actual</h3>
+  <h3>Campaign-Wise NI Reasons</h3>
+  <div class="cols">
+    <div class="col-card"><h4>Google Brand KWs — 22 Non-Paid</h4><span class="pill top"><span class="c">9</span> Fee High</span> <span class="pill"><span class="c">2</span> Not Looking</span> <span class="pill"><span class="c">2</span> NR</span> <span class="pill"><span class="c">2</span> Child Young</span> <span class="pill"><span class="c">2</span> Interested</span><p style="font-size:11px;color:var(--t2);margin-top:8px">High-intent parents who searched for Cuemath — they want it but balk at price.</p></div>
+    <div class="col-card"><h4>High_ROAS_Creative — 12 Non-Paid</h4><span class="pill top"><span class="c">4</span> Fee High</span> <span class="pill"><span class="c">1</span> War</span> <span class="pill"><span class="c">1</span> Young</span> <span class="pill"><span class="c">1</span> Decision</span> <span class="pill"><span class="c">1</span> Group</span><p style="font-size:11px;color:var(--t2);margin-top:8px">Reasons scattered = attracts browsers, not committed parents. 8% T2P = value-destroying.</p></div>
+    <div class="col-card"><h4>Dubai_location2 — 9 Non-Paid</h4><span class="pill top"><span class="c">5</span> Fee High</span> <span class="pill"><span class="c">2</span> NR</span> <span class="pill"><span class="c">1</span> War</span><p style="font-size:11px;color:var(--t2);margin-top:8px">56% fee-related. Dubai location targeting = price-sensitive families.</p></div>
+    <div class="col-card"><h4>Google Generic — 7 Non-Paid</h4><span class="pill top"><span class="c">4</span> Fee High</span> <span class="pill"><span class="c">1</span> Didn't Like</span> <span class="pill"><span class="c">1</span> Re-Trial</span><p style="font-size:11px;color:var(--t2);margin-top:8px">Comparison shoppers finding Cuemath expensive. Worst full-funnel campaign.</p></div>
+  </div>
+
+  <h3>Grade-Wise T2P</h3>
   <table>
-    <thead>
-      <tr><th>Campaign</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>Plan QL-TD%</th><th>Actual QL-TD%</th><th>Plan CPT</th><th>Actual CPT</th><th>Status</th></tr>
-    </thead>
+    <thead><tr><th>Grade</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>Top NI Reason</th><th></th></tr></thead>
     <tbody>
-      <tr><td>Brand Keywords</td><td>₹2.5L</td><td>₹2.5L</td><td>35</td><td>49</td><td>52%</td><td><span class="sig green">59%</span></td><td>₹13,736</td><td><span class="sig green">₹8,506</span></td><td><span class="badge star">STAR</span></td></tr>
-      <tr><td>Generic KWs</td><td>₹2.0L</td><td>₹2.9L</td><td>28</td><td>49</td><td>29%</td><td><span class="sig red">18%</span></td><td>₹24,187</td><td><span class="sig red">₹32,732</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
+      <tr><td>0 (KG)</td><td>29</td><td>13</td><td>1</td><td><span class="sig r">8%</span></td><td>Child Too Young (3)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>1</td><td>36</td><td>11</td><td>1</td><td><span class="sig r">9%</span></td><td>(No reason) (4)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>2</td><td>40</td><td>22</td><td>9</td><td><span class="sig g">41%</span></td><td>Fee High (4)</td><td><span class="dot g"></span></td></tr>
+      <tr><td>3</td><td>26</td><td>18</td><td>5</td><td><span class="sig y">28%</span></td><td>Fee High (5)</td><td><span class="dot y"></span></td></tr>
+      <tr><td>4</td><td>36</td><td>17</td><td>6</td><td><span class="sig g">35%</span></td><td>(No reason) (4)</td><td><span class="dot g"></span></td></tr>
+      <tr><td>5</td><td>40</td><td>14</td><td>1</td><td><span class="sig r">7%</span></td><td>Fee High (4)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>6</td><td>35</td><td>13</td><td>4</td><td><span class="sig y">31%</span></td><td>Fee High (3)</td><td><span class="dot y"></span></td></tr>
+      <tr><td>7</td><td>15</td><td>4</td><td>2</td><td><span class="sig g">50%</span></td><td>Fee High (1)</td><td><span class="dot g"></span></td></tr>
+      <tr><td>8</td><td>27</td><td>11</td><td>1</td><td><span class="sig r">9%</span></td><td>Fee High (5)</td><td><span class="dot r"></span></td></tr>
+    </tbody>
+  </table>
+  <div class="co"><strong>Grade 0-1:</strong> 65 QLs → 2 payments (8% T2P). Money pit. <strong>Grade 2:</strong> Sweet spot — 41% T2P. <strong>Grade 5 &amp; 8:</strong> Sub-10% T2P, fee dominant.</div>
+</div>
+
+<!-- MARCH: ACTIONS -->
+<div class="card">
+  <h2><span class="n">5</span> March Actions</h2>
+  <h3>Marketing</h3>
+  <div class="act"><div class="num">1</div><p><strong>Deploy full budget.</strong> 3 campaigns never launched = ₹7L unspent. Every campaign live by Day 3 or budget reallocated by Day 5.</p></div>
+  <div class="act"><div class="num">2</div><p><strong>Scale Google Brand KWs.</strong> Best CPQL (₹5K), best QL-TD% (59%), best CPT (₹8.5K). Give it 2x budget.</p></div>
+  <div class="act"><div class="num">3</div><p><strong>Cap High_ROAS_Creative.</strong> 8% T2P = ₹4L spend for 1 payment. Shift budget to Interest_Maths (43% T2P).</p></div>
+  <div class="act"><div class="num">4</div><p><strong>Anchor price in creatives.</strong> 30% of TDs lost to "Fee High." Set expectations before trial, not after.</p></div>
+  <div class="act"><div class="num">5</div><p><strong>Filter Grade 0-1.</strong> 8% T2P wastes trial slots. Add min Grade 2 to campaign targeting.</p></div>
+  <h3>Sales</h3>
+  <div class="act"><div class="num">1</div><p><strong>Fix Google ABV.</strong> ₹35K actual vs ₹70K plan — ACs defaulting to monthly. Enforce 12-month pitch. This alone recovers ₹6L+.</p></div>
+  <div class="act"><div class="num">2</div><p><strong>Build "Fee High" script.</strong> Per-session reframe + 12-month savings + EMI + exam urgency. 28 leads lost to this.</p></div>
+  <div class="act"><div class="num">3</div><p><strong>Log every NI reason.</strong> 24% of non-paid TDs have blank dispositions. Mandatory same-day.</p></div>
+</div>
+
+</div><!-- end march panel -->
+
+<!-- ============================================================ -->
+<!-- APRIL PANEL -->
+<!-- ============================================================ -->
+<div class="month-panel" id="panel-apr">
+
+<!-- APRIL HEADLINE -->
+<div class="co y">
+  <strong>10 days in:</strong> QLs at 106% of prorated plan — marketing is delivering. But <strong>T2P is 13% vs 38% plan</strong>. The #1 NI reason shifted to "Decision Pending" (35%) — parents aren't objecting, they're stalling. Post-trial urgency is the gap.
+</div>
+
+<!-- APRIL KPIs -->
+<div class="card">
+  <h2><span class="n">1</span> April Top-Line — Plan vs MTD (10 Days)</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Plan Spend</div><div class="v">₹31.5L</div><div class="d">Meta ₹21L + Google ₹10.5L</div></div>
+    <div class="kpi"><div class="l">Plan QLs</div><div class="v">476</div><div class="d g">MTD: 168 (106% pace)</div></div>
+    <div class="kpi"><div class="l">Plan TD</div><div class="v">196</div><div class="d r">MTD: 30 (46% pace)</div></div>
+    <div class="kpi"><div class="l">Plan Enrolled</div><div class="v">73</div><div class="d r">MTD: 4 (16% pace)</div></div>
+    <div class="kpi"><div class="l">Plan Revenue</div><div class="v">₹65L</div><div class="d">ABV target: ₹88K</div></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="l">Plan CPQL</div><div class="v">₹6,863</div><div class="d">Google scaling drives this up</div></div>
+    <div class="kpi"><div class="l">Plan QL-TD%</div><div class="v">36%</div><div class="d r">MTD: 18%</div></div>
+    <div class="kpi"><div class="l">Plan T2P</div><div class="v">38%</div><div class="d r">MTD: 13%</div></div>
+    <div class="kpi"><div class="l">Plan ROAS</div><div class="v">2.06x</div><div class="d">Meta 1.26x + Google 1.84x</div></div>
+    <div class="kpi"><div class="l">Plan CAC</div><div class="v">₹43K</div><div class="d r">MTD tracking much higher</div></div>
+  </div>
+</div>
+
+<!-- APRIL: CHANNEL PLAN vs ACTUAL -->
+<div class="card">
+  <h2><span class="n">2</span> Channel Plan vs MTD Actual</h2>
+  <table>
+    <thead><tr><th>Channel</th><th>Plan Spend</th><th>Plan QL</th><th>MTD QL</th><th>Pace</th><th>Plan TD</th><th>MTD TD</th><th>Plan Enr</th><th>MTD Paid</th><th>MTD T2P</th><th>Plan Rev</th><th>Plan ABV</th><th>Plan ROAS</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><strong>Meta</strong></td><td>₹21.0L</td><td>283</td><td>75</td><td>80%</td><td>100</td><td>13</td><td>30</td><td>1</td><td><span class="sig r">8%</span></td><td>₹26L</td><td>₹88K</td><td>1.26x</td><td><span class="dot y"></span></td></tr>
+      <tr><td><strong>Google</strong></td><td>₹10.5L</td><td>153</td><td>57</td><td><span class="sig g">112%</span></td><td>55</td><td>7</td><td>22</td><td>2</td><td><span class="sig y">29%</span></td><td>₹19.4L</td><td>₹88K</td><td>1.84x</td><td><span class="dot g"></span></td></tr>
+      <tr><td><strong>Referrals</strong></td><td>—</td><td>40</td><td>6</td><td><span class="sig r">46%</span></td><td>18</td><td>0</td><td>14</td><td>0</td><td>—</td><td>₹12.3L</td><td>₹88K</td><td>∞</td><td><span class="dot r"></span></td></tr>
+      <tr><td><strong>Organic</strong></td><td>—</td><td>35</td><td>26</td><td><span class="sig g">217%</span></td><td>15</td><td>2</td><td>7</td><td>0</td><td>0%</td><td>₹6.3L</td><td>₹90K</td><td>∞</td><td><span class="dot g"></span></td></tr>
+      <tr><td><strong>Others</strong></td><td>—</td><td>15</td><td>4</td><td>80%</td><td>8</td><td>1</td><td>4</td><td>1</td><td>100%</td><td>₹3.2L</td><td>₹80K</td><td>—</td><td><span class="dot y"></span></td></tr>
+      <tr class="trow"><td><strong>TOTAL</strong></td><td>₹31.5L</td><td>476</td><td>168</td><td><span class="sig g">106%</span></td><td>196</td><td>30</td><td>73</td><td>4</td><td><span class="sig r">13%</span></td><td>₹65L</td><td>₹88K</td><td>2.06x</td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="co y"><strong>Google scaling is working</strong> — 112% QL pace. Meta is behind (80%). Referrals critically low (46%). Organic is a bright spot (217%). But downstream: QL-TS rate is 23% vs 36% target — the scheduling bottleneck kills everything below it.</div>
+</div>
+
+<!-- APRIL: CAMPAIGN QL DELIVERY -->
+<div class="card">
+  <h2><span class="n">3</span> Campaign QL Delivery (MTD)</h2>
+  <div class="bar-c">
+    <div class="bar-r"><div class="bar-l">High_ROAS_Creative</div><div class="bar-t"><div class="bar-f y" style="width:80%">32 QLs · 6 TD · 1 Paid · 17% T2P</div></div></div>
+    <div class="bar-r"><div class="bar-l">Google_Generic_KWs</div><div class="bar-t"><div class="bar-f r" style="width:57%">23 QLs · 2 TD · 0 Paid · 0% T2P</div></div></div>
+    <div class="bar-r"><div class="bar-l">Dubai_location2_Signup</div><div class="bar-t"><div class="bar-f b" style="width:45%">18 QLs · 4 TD · 1 Paid · 25% T2P</div></div></div>
+    <div class="bar-r"><div class="bar-l">Google_Brand_KWs</div><div class="bar-t"><div class="bar-f g" style="width:33%">13 QLs · 4 TD · 1 Paid · 25% T2P</div></div></div>
+    <div class="bar-r"><div class="bar-l">Interest_Maths</div><div class="bar-t"><div class="bar-f g" style="width:33%">13 QLs · 2 TD · 0 Paid</div></div></div>
+    <div class="bar-r"><div class="bar-l">MEA_Int-Female</div><div class="bar-t"><div class="bar-f b" style="width:30%">12 QLs · 1 TD · 0 Paid</div></div></div>
+    <div class="bar-r"><div class="bar-l">Dubai Location 2</div><div class="bar-t"><div class="bar-f b" style="width:25%">10 QLs · 4 TD · 0 Paid · 0% T2P</div></div></div>
+    <div class="bar-r"><div class="bar-l">MEA_Dgen_Statics</div><div class="bar-t"><div class="bar-f p" style="width:15%">6 QLs · NEW</div></div></div>
+    <div class="bar-r"><div class="bar-l">Search_Competitors</div><div class="bar-t"><div class="bar-f p" style="width:10%">4 QLs · NEW</div></div></div>
+    <div class="bar-r"><div class="bar-l">Advantage+Non-OTP</div><div class="bar-t"><div class="bar-f r" style="width:3%">1 QL</div></div></div>
+  </div>
+  <div class="co r"><strong>Advantage+Non-OTP starved again</strong> — 1 QL in 10 days. Had 40% QL-TD% in March. Meanwhile High_ROAS_Creative gets most budget despite 8-17% T2P.</div>
+</div>
+
+<!-- APRIL: T2P DEEP DIVE -->
+<div class="card">
+  <h2><span class="n">4</span> T2P Deep Dive — 30 TDs → 4 Paid (13%)</h2>
+
+  <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+    <div class="kpi"><div class="l">Trial Done</div><div class="v">30</div></div>
+    <div class="kpi"><div class="l">Paid</div><div class="v" style="color:var(--g)">4</div></div>
+    <div class="kpi"><div class="l">Pipeline</div><div class="v" style="color:var(--y)">10</div><div class="d y">Can still convert</div></div>
+    <div class="kpi"><div class="l">Lost (NI)</div><div class="v" style="color:var(--r)">16</div></div>
+  </div>
+
+  <h3>Why 26 TDs Did Not Convert</h3>
+  <div class="bar-c">
+    <div class="bar-r"><div class="bar-l">Decision Pending</div><div class="bar-t"><div class="bar-f y" style="width:87%">9 (35%) — was 8% in March</div></div></div>
+    <div class="bar-r"><div class="bar-l">Fee High</div><div class="bar-t"><div class="bar-f r" style="width:58%">6 (23%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">(No reason logged)</div><div class="bar-t"><div class="bar-f b" style="width:48%">5 (19%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Non-Responsive</div><div class="bar-t"><div class="bar-f b" style="width:29%">3 (12%)</div></div></div>
+    <div class="bar-r"><div class="bar-l">Re-Trial / Didn't Like</div><div class="bar-t"><div class="bar-f p" style="width:15%">2 (8%)</div></div></div>
+  </div>
+  <div class="co y"><strong>"Decision Pending" jumped 4x</strong> from 8% to 35%. These parents aren't saying no — they're stalling. Different fix than March's "Fee High": needs urgency and deadlines, not pricing rebuttals.</div>
+
+  <h3>Campaign-Wise NI Reasons</h3>
+  <table>
+    <thead><tr><th>Campaign</th><th>TD</th><th>Paid</th><th>T2P%</th><th>NI Reasons</th></tr></thead>
+    <tbody>
+      <tr><td>High_ROAS_Creative</td><td>6</td><td>1</td><td>17%</td><td><span class="pill top"><span class="c">3</span> Decision Pending</span> <span class="pill"><span class="c">2</span> Fee High</span></td></tr>
+      <tr><td>Google_Brand_KWs</td><td>4</td><td>1</td><td>25%</td><td><span class="pill top"><span class="c">2</span> Fee High</span> <span class="pill"><span class="c">1</span> Decision</span></td></tr>
+      <tr><td>Dubai Location 2</td><td>4</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="pill"><span class="c">2</span> Fee High</span> <span class="pill"><span class="c">1</span> Interested</span></td></tr>
+      <tr><td>Dubai_location2_Signup</td><td>4</td><td>1</td><td>25%</td><td><span class="pill"><span class="c">1</span> NR</span> <span class="pill"><span class="c">1</span> Didn't Like</span></td></tr>
+      <tr><td>Google_Generic_KWs</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="pill top"><span class="c">2</span> Decision Pending</span></td></tr>
     </tbody>
   </table>
 
-  <h3>Meta — Campaign Plan vs Actual</h3>
+  <h3>Grade-Wise T2P</h3>
   <table>
-    <thead>
-      <tr><th>Campaign</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>Plan QL-TD%</th><th>Actual QL-TD%</th><th>Plan CPT</th><th>Actual CPT</th><th>Status</th></tr>
-    </thead>
+    <thead><tr><th>Grade</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>Top NI Reason</th><th></th></tr></thead>
     <tbody>
-      <tr><td>Dubai Location 2 (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>36</td><td>40</td><td>33%</td><td><span class="sig green">40%</span></td><td>₹21,212</td><td><span class="sig green">₹14,188</span></td><td><span class="badge scale">STRONG</span></td></tr>
-      <tr><td>Dubai Location 2 (LP)</td><td>₹3.0L</td><td>₹4.7L</td><td>37</td><td>45</td><td>47%</td><td><span class="sig red">33%</span></td><td>₹17,399</td><td><span class="sig red">₹31,598</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
-      <tr><td>MEA_Int-Female (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>35</td><td>36</td><td>35%</td><td><span class="sig red">22%</span></td><td>₹20,260</td><td><span class="sig red">₹28,380</span></td><td><span class="badge cap">FUNNEL BROKE</span></td></tr>
-      <tr><td>Interest_Maths_Engaged (IF)</td><td>₹3.5L</td><td>₹2.8L</td><td>48</td><td>41</td><td>36%</td><td><span class="sig red">22%</span></td><td>₹19,865</td><td><span class="sig red">₹31,585</span></td><td><span class="badge monitor">QL OK, FUNNEL BROKE</span></td></tr>
-      <tr><td>Int_Premium_Brands</td><td>₹1.5L</td><td>₹1.5L</td><td>21</td><td>22</td><td>32%</td><td><span class="sig red">9%</span></td><td>₹21,605</td><td><span class="sig red">₹75,504</span></td><td><span class="badge pause">PAUSE</span></td></tr>
-      <tr><td>Advantage+Non-OTP (IF)</td><td>₹2.5L</td><td>₹0.8L</td><td>36</td><td>10</td><td>38%</td><td><span class="sig green">40%</span></td><td>₹18,667</td><td>₹20,887</td><td><span class="badge cap">STARVED</span></td></tr>
-      <tr><td>High_ROAS_Creative (LP)</td><td>₹3.0L</td><td>₹4.0L</td><td>37</td><td>41</td><td>38%</td><td><span class="sig red">32%</span></td><td>₹21,744</td><td><span class="sig red">₹30,722</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
-      <tr style="opacity:0.5"><td>Dubai-Premium-Aud-3 (LP)</td><td>₹3.0L</td><td>₹0</td><td>39</td><td>0</td><td>37%</td><td>—</td><td>₹20,299</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
-      <tr style="opacity:0.5"><td>HNIs Targeting</td><td>₹2.0L</td><td>₹0</td><td>13</td><td>0</td><td>45%</td><td>—</td><td>₹34,074</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
-      <tr style="opacity:0.5"><td>CTF_Parents_Targeting</td><td>₹2.0L</td><td>₹0</td><td>30</td><td>0</td><td>19%</td><td>—</td><td>₹34,632</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
+      <tr><td>0</td><td>16</td><td>4</td><td>0</td><td><span class="sig r">0%</span></td><td>Decision Pending (2)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>1</td><td>19</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td><td>Decision Pending (2)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>2-3</td><td>34</td><td>3</td><td>0</td><td>—</td><td>Fee High (1)</td><td><span class="dot y"></span></td></tr>
+      <tr><td>4</td><td>22</td><td>4</td><td>1</td><td><span class="sig y">25%</span></td><td>Fee High (2)</td><td><span class="dot y"></span></td></tr>
+      <tr><td>5</td><td>26</td><td>6</td><td>0</td><td><span class="sig r">0%</span></td><td>Fee High (2)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>6</td><td>17</td><td>3</td><td>3</td><td><span class="sig g">100%</span></td><td>—</td><td><span class="dot g"></span></td></tr>
+      <tr><td>7</td><td>11</td><td>3</td><td>0</td><td><span class="sig r">0%</span></td><td>Decision Pending (2)</td><td><span class="dot r"></span></td></tr>
+      <tr><td>8</td><td>19</td><td>5</td><td>0</td><td><span class="sig r">0%</span></td><td>(No reason) (3)</td><td><span class="dot r"></span></td></tr>
     </tbody>
   </table>
+  <div class="co"><strong>April confirms March:</strong> Grade 0-1 = 0% T2P. Grade 5 &amp; 8 = 0%. Grade 6 = 100% (3/3). Pattern is consistent.</div>
+</div>
 
-  <div class="callout red">
-    <strong>₹7L in planned campaigns never launched</strong> (Dubai-Premium-Aud-3, HNIs, CTF_Parents). Budget leaked into Dubai_location2_LP and High_ROAS_Creative — both overspent AND underperformed. Meanwhile, Advantage+Non-OTP had the best QL-TD% (40%) but was starved at ₹0.8L vs ₹2.5L planned.
-  </div>
+<!-- APRIL: ACTIONS -->
+<div class="card">
+  <h2><span class="n">5</span> April Actions</h2>
+  <h3>Marketing — Do by April 15</h3>
+  <div class="act"><div class="num">1</div><p><strong>Fund Advantage+Non-OTP.</strong> 40% QL-TD% in March, 1 QL in 10 April days. Deploy the planned ₹2.5L or drop it from plan.</p></div>
+  <div class="act"><div class="num">2</div><p><strong>Cap High_ROAS_Creative.</strong> #1 QL source but 8-17% T2P. Don't increase. Shift incremental to Interest_Maths (43% T2P).</p></div>
+  <div class="act"><div class="num">3</div><p><strong>Cap Google Generic KWs.</strong> 0% T2P in April, 12% in March. ₹32K CPT. Don't scale until TD% improves.</p></div>
+  <div class="act"><div class="num">4</div><p><strong>2-week checkpoint on new campaigns.</strong> MEA_Dgen_Statics and Search_Competitors have no baseline. Kill if QL-TD% &lt;25% by Apr 15.</p></div>
+  <div class="act"><div class="num">5</div><p><strong>Add Grade 2-8 filter.</strong> Grade 0-1 = 0% T2P in April, 8% in March. Every KG trial slot is a wasted Grade 2-4 slot.</p></div>
 
-  <h3>Campaign-Level T2P Performance (Full Funnel View)</h3>
+  <h3>Sales — Do Today</h3>
+  <div class="act"><div class="num">1</div><p><strong>Close 9 "Decision Pending" leads today.</strong> Each = ₹88K. Use expiring slot offer: "Confirm by Thursday or we give the slot away." KHDA assessments start Apr 27.</p></div>
+  <div class="act"><div class="num">2</div><p><strong>Fix trial scheduling rate.</strong> 23% QL→TS vs 36% target. Same-day contact SLA for every new lead. This is the biggest lever.</p></div>
+  <div class="act"><div class="num">3</div><p><strong>Enforce 12-month default pitch.</strong> March Google ABV was ₹35K vs ₹88K plan. April plan assumes ₹88K. One AC defaulting to monthly kills the revenue plan.</p></div>
+  <div class="act"><div class="num">4</div><p><strong>Post-trial call within 2 hours.</strong> 32% of TDs going NI. Speed = the difference between "Decision Pending" and "Enrolled."</p></div>
+</div>
+
+<!-- APRIL: REALLOCATION TABLE -->
+<div class="card">
+  <h2><span class="n">6</span> Campaign Reallocation — April 15</h2>
   <table>
-    <thead>
-      <tr><th>Campaign</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>#1 NI Reason</th><th>Verdict</th></tr>
-    </thead>
+    <thead><tr><th>Action</th><th>Campaign</th><th>Why</th></tr></thead>
     <tbody>
-      <tr><td>Google Brand KWs</td><td>44</td><td>28</td><td>6</td><td><span class="sig yellow">21%</span></td><td>Fee High (9)</td><td><span class="badge star">STAR</span></td></tr>
-      <tr><td>High_ROAS_Creative</td><td>25</td><td>13</td><td>1</td><td><span class="sig red">8%</span></td><td>Fee High (4)</td><td><span class="badge cap">VOLUME TRAP</span></td></tr>
-      <tr><td>Dubai_location2_Signup</td><td>32</td><td>12</td><td>3</td><td><span class="sig yellow">25%</span></td><td>Fee High (5)</td><td><span class="badge monitor">OK</span></td></tr>
-      <tr><td>Dubai Location 2 (Google)</td><td>25</td><td>8</td><td>1</td><td><span class="sig red">12%</span></td><td>Non-Responsive (2)</td><td><span class="badge cap">LOW T2P</span></td></tr>
-      <tr><td>Google_Generic_KWs</td><td>24</td><td>8</td><td>1</td><td><span class="sig red">12%</span></td><td>Fee High (4)</td><td><span class="badge cap">WORST FUNNEL</span></td></tr>
-      <tr><td>Interest_Maths_Engaged</td><td>31</td><td>7</td><td>3</td><td><span class="sig green">43%</span></td><td>Fee High (1)</td><td><span class="badge scale">HIDDEN STAR</span></td></tr>
-      <tr><td>MEA_Int-Female</td><td>16</td><td>4</td><td>1</td><td><span class="sig yellow">25%</span></td><td>Fee High (2)</td><td><span class="badge monitor">SMALL SAMPLE</span></td></tr>
-      <tr><td>Advantage+Non-OTP</td><td>10</td><td>2</td><td>0</td><td><span class="sig red">0%</span></td><td>Fee High (1)</td><td><span class="badge cap">STARVED</span></td></tr>
-      <tr><td>Int_Premium_Brands</td><td>11</td><td>2</td><td>0</td><td><span class="sig red">0%</span></td><td>Fee High (1)</td><td><span class="badge pause">PAUSE</span></td></tr>
+      <tr><td><span class="badge sc">SCALE</span></td><td>Interest_Maths_Engaged</td><td>43% T2P in March — best Meta campaign</td></tr>
+      <tr><td><span class="badge sc">SCALE</span></td><td>Google Brand KWs</td><td>59% QL-TD%, ₹8.5K CPT, 25% April T2P</td></tr>
+      <tr><td><span class="badge sc">SCALE</span></td><td>Advantage+Non-OTP</td><td>40% QL-TD%, currently getting zero budget</td></tr>
+      <tr><td><span class="badge cp">CAP</span></td><td>High_ROAS_Creative</td><td>#1 volume but 8-17% T2P, ₹31K CPT</td></tr>
+      <tr><td><span class="badge cp">CAP</span></td><td>Google Generic KWs</td><td>18% QL-TD%, 0-12% T2P, ₹33K CPT</td></tr>
+      <tr><td><span class="badge mn">MONITOR</span></td><td>MEA_Dgen_Statics</td><td>New — no baseline. 2-week checkpoint</td></tr>
+      <tr><td><span class="badge mn">MONITOR</span></td><td>Search_Competitors</td><td>New — no baseline. 2-week checkpoint</td></tr>
+      <tr><td><span class="badge fl">FILTER</span></td><td>All campaigns</td><td>Exclude Grade 0-1 from targeting</td></tr>
     </tbody>
   </table>
 </div>
 
-<!-- SECTION 2: T2P DEEP DIVE -->
-<div class="section">
-  <h2><span class="num">2</span> T2P Deep Dive — Why Leads Don't Pay After Trial</h2>
-  <div class="section-desc">Root cause analysis of 123 March TDs and 30 April TDs using disposition reasons</div>
-
-  <!-- Tab bar for March / April -->
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('march')">March (123 TDs → 30 Paid)</button>
-    <button class="tab-btn" onclick="switchTab('april')">April MTD (30 TDs → 4 Paid)</button>
-  </div>
-
-  <!-- MARCH TAB -->
-  <div class="tab-content active" id="tab-march">
-    <div class="kpi-grid">
-      <div class="kpi"><div class="label">Trial Done</div><div class="value">123</div></div>
-      <div class="kpi"><div class="label">Paid</div><div class="value" style="color:var(--green)">30</div></div>
-      <div class="kpi"><div class="label">T2P Rate</div><div class="value" style="color:var(--red)">24%</div><div class="sub red">vs 39% plan</div></div>
-      <div class="kpi"><div class="label">Non-Paid</div><div class="value" style="color:var(--red)">93</div></div>
-    </div>
-
-    <h3>Why 93 TDs Did NOT Convert</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">Fee High</div><div class="bar-track"><div class="bar-fill red" style="width:74%">28 (30%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">(No reason logged)</div><div class="bar-track"><div class="bar-fill yellow" style="width:58%">22 (24%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Non-Responsive</div><div class="bar-track"><div class="bar-fill blue" style="width:21%">8 (9%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Decision Pending</div><div class="bar-track"><div class="bar-fill blue" style="width:18%">7 (8%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Child Too Young</div><div class="bar-track"><div class="bar-fill purple" style="width:13%">5 (5%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">War/Travel Related</div><div class="bar-track"><div class="bar-fill purple" style="width:11%">4 (4%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Interested to Enrol</div><div class="bar-track"><div class="bar-fill green" style="width:11%">4 (4%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Didn't Like Trial</div><div class="bar-track"><div class="bar-fill purple" style="width:8%">3 (3%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Invalid Trial</div><div class="bar-track"><div class="bar-fill purple" style="width:8%">3 (3%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Will Enrol Later</div><div class="bar-track"><div class="bar-fill purple" style="width:8%">3 (3%)</div></div></div>
-    </div>
-
-    <div class="callout red">
-      <strong>"Fee High" is the #1 T2P killer</strong> — 30% of all non-paid TDs across every campaign. These parents did the trial and liked it. They object to price, not product. Second issue: 24% have <strong>no reason logged at all</strong> — ACs are not capturing disposition data.
-    </div>
-
-    <h3>Campaign-Wise NI Breakdown</h3>
-    <div class="compare-row">
-      <div class="compare-card">
-        <h4>Google Brand KWs — 22 Non-Paid TDs</h4>
-        <div class="reason-pills">
-          <span class="pill top"><span class="cnt">9</span> Fee High</span>
-          <span class="pill"><span class="cnt">2</span> Not Looking Now</span>
-          <span class="pill"><span class="cnt">2</span> Non-Responsive</span>
-          <span class="pill"><span class="cnt">2</span> Child Too Young</span>
-          <span class="pill"><span class="cnt">2</span> Interested to Enrol</span>
-        </div>
-        <div class="insight">Best campaign at getting leads to trial (59% QL-TD%), but <strong>41% of non-paid cite fee</strong>. High-intent parents who search for Cuemath but balk at price. Highest-leverage segment for pricing intervention.</div>
-      </div>
-      <div class="compare-card">
-        <h4>High_ROAS_Creative — 12 Non-Paid TDs</h4>
-        <div class="reason-pills">
-          <span class="pill top"><span class="cnt">4</span> Fee High</span>
-          <span class="pill"><span class="cnt">1</span> War/Travel</span>
-          <span class="pill"><span class="cnt">1</span> Child Too Young</span>
-          <span class="pill"><span class="cnt">1</span> Decision Pending</span>
-          <span class="pill"><span class="cnt">1</span> Group Subjects</span>
-          <span class="pill"><span class="cnt">1</span> Next Year</span>
-        </div>
-        <div class="insight">Worst T2P (8%). Reasons are <strong>scattered</strong> — fee, timing, fit. This campaign attracts browsers, not committed parents. Value-destroying despite QL volume.</div>
-      </div>
-    </div>
-    <div class="compare-row">
-      <div class="compare-card">
-        <h4>Dubai_location2_Signup — 9 Non-Paid TDs</h4>
-        <div class="reason-pills">
-          <span class="pill top"><span class="cnt">5</span> Fee High</span>
-          <span class="pill"><span class="cnt">2</span> Non-Responsive</span>
-          <span class="pill"><span class="cnt">1</span> War/Travel</span>
-          <span class="pill"><span class="cnt">1</span> Decision Pending</span>
-        </div>
-        <div class="insight">56% of NI = fee-related. Dubai location targeting brings <strong>price-sensitive families</strong>. IF variant outperformed LP.</div>
-      </div>
-      <div class="compare-card">
-        <h4>Google_Generic_KWs — 7 Non-Paid TDs</h4>
-        <div class="reason-pills">
-          <span class="pill top"><span class="cnt">4</span> Fee High</span>
-          <span class="pill"><span class="cnt">1</span> Didn't Like Trial</span>
-          <span class="pill"><span class="cnt">1</span> Re-Trial</span>
-          <span class="pill"><span class="cnt">1</span> Decision Pending</span>
-        </div>
-        <div class="insight">Generic searchers are comparison shopping. <strong>Low QL-TD% (18%) AND low T2P (12%)</strong> = worst full-funnel campaign.</div>
-      </div>
-    </div>
-
-    <h3>Grade-Wise T2P</h3>
-    <table>
-      <thead>
-        <tr><th>Grade</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>Top NI Reason</th><th>Signal</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Grade 0 (KG)</td><td>29</td><td>13</td><td>1</td><td><span class="sig red">8%</span></td><td>Child Too Young (3)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 1</td><td>36</td><td>11</td><td>1</td><td><span class="sig red">9%</span></td><td>(No reason) (4)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 2</td><td>40</td><td>22</td><td>9</td><td><span class="sig green">41%</span></td><td>Fee High (4)</td><td><span class="dot green"></span></td></tr>
-        <tr><td>Grade 3</td><td>26</td><td>18</td><td>5</td><td><span class="sig yellow">28%</span></td><td>Fee High (5)</td><td><span class="dot yellow"></span></td></tr>
-        <tr><td>Grade 4</td><td>36</td><td>17</td><td>6</td><td><span class="sig green">35%</span></td><td>(No reason) (4)</td><td><span class="dot green"></span></td></tr>
-        <tr><td>Grade 5</td><td>40</td><td>14</td><td>1</td><td><span class="sig red">7%</span></td><td>Fee High (4)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 6</td><td>35</td><td>13</td><td>4</td><td><span class="sig yellow">31%</span></td><td>Fee High (3)</td><td><span class="dot yellow"></span></td></tr>
-        <tr><td>Grade 7</td><td>15</td><td>4</td><td>2</td><td><span class="sig green">50%</span></td><td>Fee High (1)</td><td><span class="dot green"></span></td></tr>
-        <tr><td>Grade 8</td><td>27</td><td>11</td><td>1</td><td><span class="sig red">9%</span></td><td>Fee High (5)</td><td><span class="dot red"></span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <strong>Grade 0-1 = money pits:</strong> 65 QLs, 24 TDs, only 2 payments (8% T2P). "Child Too Young" is frequent.<br>
-      <strong>Grade 2 = sweet spot:</strong> 41% T2P, highest payment volume (9).<br>
-      <strong>Grade 5 &amp; 8 = collapse:</strong> 7% and 9% T2P. Fee High dominates — different pitches needed per grade.
-    </div>
-  </div>
-
-  <!-- APRIL TAB -->
-  <div class="tab-content" id="tab-april">
-    <div class="kpi-grid">
-      <div class="kpi"><div class="label">Trial Done</div><div class="value">30</div></div>
-      <div class="kpi"><div class="label">Paid</div><div class="value" style="color:var(--green)">4</div></div>
-      <div class="kpi"><div class="label">T2P Rate</div><div class="value" style="color:var(--red)">13%</div><div class="sub red">vs 38% plan</div></div>
-      <div class="kpi"><div class="label">Pipeline</div><div class="value" style="color:var(--yellow)">10</div><div class="sub yellow">can still convert</div></div>
-    </div>
-
-    <h3>Why 26 TDs Did NOT Convert (April MTD)</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><div class="bar-label">Decision Pending</div><div class="bar-track"><div class="bar-fill yellow" style="width:87%">9 (35%) ⬆ 4x vs March</div></div></div>
-      <div class="bar-row"><div class="bar-label">Fee High</div><div class="bar-track"><div class="bar-fill red" style="width:58%">6 (23%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">(No reason logged)</div><div class="bar-track"><div class="bar-fill blue" style="width:48%">5 (19%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Non-Responsive</div><div class="bar-track"><div class="bar-fill blue" style="width:29%">3 (12%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Re-Trial Pending</div><div class="bar-track"><div class="bar-fill purple" style="width:10%">1 (4%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Interested to Enrol</div><div class="bar-track"><div class="bar-fill green" style="width:10%">1 (4%)</div></div></div>
-      <div class="bar-row"><div class="bar-label">Didn't Like Trial</div><div class="bar-track"><div class="bar-fill purple" style="width:10%">1 (4%)</div></div></div>
-    </div>
-
-    <div class="callout yellow">
-      <strong>The reason shifted.</strong> March's #1 was "Fee High" (price objection). April's #1 is <strong>"Decision Pending" at 35%</strong> — a 4x increase. These parents aren't saying no — they're stalling. Fix = urgency-driven follow-up with deadlines, not pricing rebuttals.
-    </div>
-
-    <h3>Campaign-Wise T2P & NI Reasons (April)</h3>
-    <table>
-      <thead>
-        <tr><th>Campaign</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>NI Reasons</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>High_ROAS_Creative</td><td>32</td><td>6</td><td>1</td><td><span class="sig yellow">17%</span></td><td><span class="pill top"><span class="cnt">3</span> Decision Pending</span> <span class="pill"><span class="cnt">2</span> Fee High</span></td></tr>
-        <tr><td>Google_Brand_KWs</td><td>13</td><td>4</td><td>1</td><td><span class="sig yellow">25%</span></td><td><span class="pill top"><span class="cnt">2</span> Fee High</span> <span class="pill"><span class="cnt">1</span> Decision Pending</span></td></tr>
-        <tr><td>Dubai Location 2</td><td>10</td><td>4</td><td>0</td><td><span class="sig red">0%</span></td><td><span class="pill"><span class="cnt">2</span> Fee High</span> <span class="pill"><span class="cnt">1</span> Interested</span> <span class="pill"><span class="cnt">1</span> Decision</span></td></tr>
-        <tr><td>Dubai_location2_Signup</td><td>18</td><td>4</td><td>1</td><td><span class="sig yellow">25%</span></td><td><span class="pill"><span class="cnt">1</span> Non-Responsive</span> <span class="pill"><span class="cnt">1</span> Didn't Like</span></td></tr>
-        <tr><td>Google_Generic_KWs</td><td>23</td><td>2</td><td>0</td><td><span class="sig red">0%</span></td><td><span class="pill top"><span class="cnt">2</span> Decision Pending</span></td></tr>
-        <tr><td>Interest_Maths_Engaged</td><td>12</td><td>2</td><td>0</td><td><span class="sig red">0%</span></td><td><span class="pill"><span class="cnt">1</span> Non-Responsive</span> <span class="pill"><span class="cnt">1</span> Decision</span></td></tr>
-        <tr><td>MEA_Int-Female</td><td>12</td><td>1</td><td>0</td><td><span class="sig red">0%</span></td><td><span class="pill"><span class="cnt">1</span> Non-Responsive</span></td></tr>
-      </tbody>
-    </table>
-
-    <h3>Grade-Wise T2P (April)</h3>
-    <table>
-      <thead><tr><th>Grade</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>Top NI Reason</th><th>Signal</th></tr></thead>
-      <tbody>
-        <tr><td>Grade 0</td><td>16</td><td>4</td><td>0</td><td><span class="sig red">0%</span></td><td>Decision Pending (2)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 1</td><td>19</td><td>2</td><td>0</td><td><span class="sig red">0%</span></td><td>Decision Pending (2)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 2</td><td>16</td><td>2</td><td>0</td><td><span class="sig yellow">—</span></td><td>(No reason)</td><td><span class="dot yellow"></span></td></tr>
-        <tr><td>Grade 3</td><td>18</td><td>1</td><td>0</td><td><span class="sig yellow">—</span></td><td>Fee High (1)</td><td><span class="dot yellow"></span></td></tr>
-        <tr><td>Grade 4</td><td>22</td><td>4</td><td>1</td><td><span class="sig yellow">25%</span></td><td>Fee High (2)</td><td><span class="dot yellow"></span></td></tr>
-        <tr><td>Grade 5</td><td>26</td><td>6</td><td>0</td><td><span class="sig red">0%</span></td><td>Fee High (2)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 6</td><td>17</td><td>3</td><td>3</td><td><span class="sig green">100%</span></td><td>—</td><td><span class="dot green"></span></td></tr>
-        <tr><td>Grade 7</td><td>11</td><td>3</td><td>0</td><td><span class="sig red">0%</span></td><td>Decision Pending (2)</td><td><span class="dot red"></span></td></tr>
-        <tr><td>Grade 8</td><td>19</td><td>5</td><td>0</td><td><span class="sig red">0%</span></td><td>(No reason) (3)</td><td><span class="dot red"></span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <strong>April confirms March pattern:</strong> Grade 0-1 = low T2P. Grade 5 &amp; 8 = struggling. Grade 6 = 100% (3/3). Data is early but directionally consistent.
-    </div>
-  </div>
-</div>
-
-<!-- SECTION 3: APRIL PLAN vs ACTUAL -->
-<div class="section">
-  <h2><span class="num">3</span> April Plan vs Actual (10 Days In — 33% of Month)</h2>
-  <div class="section-desc">Channel-level full funnel plan vs prorated actuals</div>
-
-  <h3>Channel-Level Plan vs Actual (Full Funnel)</h3>
-  <table>
-    <thead><tr><th>Channel</th><th>Plan Spend</th><th>Plan QL</th><th>MTD QL</th><th>Pace</th><th>Plan TD</th><th>MTD TD</th><th>Plan Enrolled</th><th>MTD Paid</th><th>Plan Rev</th><th>Signal</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>Perf Meta</strong></td><td>₹21.0L</td><td>283</td><td>75</td><td>80%</td><td>100</td><td>13</td><td>30</td><td>1</td><td>₹26.0L</td><td><span class="dot yellow"></span></td>
-      </tr>
-      <tr>
-        <td><strong>Perf Google</strong></td><td>₹10.5L</td><td>153</td><td>57</td><td><span class="sig green">112%</span></td><td>55</td><td>7</td><td>22</td><td>2</td><td>₹19.4L</td><td><span class="dot green"></span></td>
-      </tr>
-      <tr>
-        <td><strong>Referrals</strong></td><td>—</td><td>40</td><td>6</td><td><span class="sig red">46%</span></td><td>18</td><td>0</td><td>14</td><td>0</td><td>₹12.3L</td><td><span class="dot red"></span></td>
-      </tr>
-      <tr>
-        <td><strong>Organic</strong></td><td>—</td><td>35</td><td>26</td><td><span class="sig green">217%</span></td><td>15</td><td>2</td><td>7</td><td>0</td><td>₹6.3L</td><td><span class="dot green"></span></td>
-      </tr>
-      <tr>
-        <td><strong>Others</strong></td><td>—</td><td>15</td><td>4</td><td>80%</td><td>8</td><td>1</td><td>4</td><td>1</td><td>₹3.2L</td><td><span class="dot yellow"></span></td>
-      </tr>
-      <tr class="total-row">
-        <td><strong>TOTAL</strong></td><td><strong>₹31.5L</strong></td><td><strong>476</strong></td><td><strong>168</strong></td><td><strong><span class="sig green">106%</span></strong></td><td><strong>196</strong></td><td><strong>30</strong></td><td><strong>73</strong></td><td><strong>4</strong></td><td><strong>₹65.0L</strong></td><td><span class="dot green"></span></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout yellow">
-    <strong>QL pace is on track (106%)</strong> but downstream conversion is lagging. At current pace: 30 TDs in 10 days = ~90 for month vs 196 plan. 4 payments in 10 days = ~12 vs 73 plan. The gap is in trial scheduling (23% QL-TS vs 36% target) and T2P (13% vs 38% plan).
-  </div>
-
-  <h3>April Plan vs Actual — Key Metrics by Channel</h3>
-  <div class="compare-row">
-    <div class="compare-card">
-      <h4>Performance Meta — Apr Plan vs MTD</h4>
-      <table class="detail-table">
-        <tbody>
-          <tr><td>Plan Spend</td><td>₹21.0L</td></tr>
-          <tr><td>Plan CPQL</td><td>₹7,420</td></tr>
-          <tr><td>Plan QL → MTD Actual</td><td>283 → 75 (80% pace)</td></tr>
-          <tr><td>Plan QL-TD% → MTD</td><td>35% → 17%</td></tr>
-          <tr><td>Plan TD → MTD</td><td>100 → 13</td></tr>
-          <tr><td>Plan TD-En% → MTD</td><td>30% → 8%</td></tr>
-          <tr><td>Plan Enrolled → MTD Paid</td><td>30 → 1</td></tr>
-          <tr><td>Plan Revenue</td><td>₹26.0L</td></tr>
-          <tr><td>Plan ROAS</td><td>1.26x</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="compare-card">
-      <h4>Performance Google — Apr Plan vs MTD</h4>
-      <table class="detail-table">
-        <tbody>
-          <tr><td>Plan Spend</td><td>₹10.5L (2.3x Mar)</td></tr>
-          <tr><td>Plan CPQL</td><td>₹6,863</td></tr>
-          <tr><td>Plan QL → MTD Actual</td><td>153 → 57 (112% pace)</td></tr>
-          <tr><td>Plan QL-TD% → MTD</td><td>36% → 12%</td></tr>
-          <tr><td>Plan TD → MTD</td><td>55 → 7</td></tr>
-          <tr><td>Plan TD-En% → MTD</td><td>40% → 29%</td></tr>
-          <tr><td>Plan Enrolled → MTD Paid</td><td>22 → 2</td></tr>
-          <tr><td>Plan Revenue</td><td>₹19.4L</td></tr>
-          <tr><td>Plan ROAS</td><td>1.84x</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <h3>April QL Delivery by Campaign (MTD)</h3>
-  <div class="bar-chart">
-    <div class="bar-row"><div class="bar-label">High_ROAS_Creative</div><div class="bar-track"><div class="bar-fill yellow" style="width:80%">32 (19%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Google_Generic_KWs</div><div class="bar-track"><div class="bar-fill red" style="width:57%">23 (14%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Dubai_location2_Signup</div><div class="bar-track"><div class="bar-fill blue" style="width:45%">18 (11%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Google_Brand_KWs</div><div class="bar-track"><div class="bar-fill green" style="width:33%">13 (8%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Interest_Maths_Engaged</div><div class="bar-track"><div class="bar-fill green" style="width:33%">13 (8%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">MEA_Int-Female</div><div class="bar-track"><div class="bar-fill blue" style="width:30%">12 (7%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Dubai Location 2</div><div class="bar-track"><div class="bar-fill blue" style="width:25%">10 (6%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">MEA_Dgen_Statics</div><div class="bar-track"><div class="bar-fill purple" style="width:15%">6 (4%) NEW</div></div></div>
-    <div class="bar-row"><div class="bar-label">Search_Competitors</div><div class="bar-track"><div class="bar-fill purple" style="width:10%">4 (2%) NEW</div></div></div>
-    <div class="bar-row"><div class="bar-label">Advantage+Non-OTP</div><div class="bar-track"><div class="bar-fill red" style="width:3%">1 — STARVED AGAIN</div></div></div>
-  </div>
-
-  <div class="callout">
-    <strong>Campaign-level plan not available for April</strong> (business plan was done at channel level). Tracking actuals by campaign above. Key watch: High_ROAS_Creative is #1 source (32 QLs) but had 8% T2P in March. Google scaling is working — Brand KWs + Generic together = 36 QLs (21% of total).
-  </div>
-</div>
-
-<!-- SECTION 4: RECOMMENDATIONS -->
-<div class="section">
-  <h2><span class="num">4</span> Insights & Recommendations</h2>
-
-  <h3>For Marketing</h3>
-  <div class="rec-grid">
-    <div class="rec-card mkt">
-      <h4>1. "Fee High" = Value Communication Gap</h4>
-      <p>30% of March non-paid TDs objected to price. Parents do trials, like the product, then balk at cost. <strong>Test creatives that anchor price upfront</strong> — set 12-month value expectations, filter low-budget parents via lead forms.</p>
-    </div>
-    <div class="rec-card mkt">
-      <h4>2. High_ROAS_Creative is a Volume Trap</h4>
-      <p>8% T2P in March, 17% in April. #1 QL source but attracts browsers. <strong>Cap budget. Shift incremental spend to Interest_Maths_Engaged</strong> (43% T2P — best Meta campaign).</p>
-    </div>
-    <div class="rec-card mkt">
-      <h4>3. Google Generic KWs = Worst Full-Funnel</h4>
-      <p>18% QL-TD% AND 12% T2P. Only 1 payment from 24 March QLs. Generic searchers comparison shop and find Cuemath expensive. <strong>Cap or reduce budget.</strong></p>
-    </div>
-    <div class="rec-card mkt">
-      <h4>4. Grade 0-1 Targeting Wastes Trial Capacity</h4>
-      <p>65 March QLs, 24 TDs, only 2 payments (8% T2P). "Child Too Young" is frequent. <strong>Add Grade 2-8 filter</strong> — every Grade 0 trial slot = lost Grade 2-4 slot (35-41% T2P).</p>
-    </div>
-    <div class="rec-card mkt">
-      <h4>5. Advantage+Non-OTP Starved Again</h4>
-      <p>40% QL-TD% in March but only ₹0.8L spent (₹2.5L planned). April: 1 QL in 10 days. <strong>Either commit budget or remove from plan.</strong></p>
-    </div>
-    <div class="rec-card mkt">
-      <h4>6. Budget Deployment Discipline</h4>
-      <p>₹7L never deployed in March (3 campaigns never launched). <strong>Every campaign must launch by Day 3 or budget reallocated by Day 5.</strong> Weekly pacing review non-negotiable.</p>
-    </div>
-  </div>
-
-  <h3>For Sales</h3>
-  <div class="rec-grid">
-    <div class="rec-card sales">
-      <h4>1. Fix "Decision Pending" — Create Urgency</h4>
-      <p>35% of April non-paid TDs are stalling (was 8% in March). They didn't say no — they haven't decided. <strong>Every post-trial call needs an expiring offer:</strong> "Slot available Monday. Confirm by Thursday or we offer to another family."</p>
-    </div>
-    <div class="rec-card sales">
-      <h4>2. "Fee High" Handling Framework</h4>
-      <p>34 leads lost to fee objection (28 Mar + 6 Apr). ACs need scripted response: (a) per-session reframe, (b) 12-month savings, (c) EMI options, (d) KHDA exam urgency anchor.</p>
-    </div>
-    <div class="rec-card sales">
-      <h4>3. Log Disposition Reasons — Always</h4>
-      <p>24% of March non-paid TDs have <strong>no reason logged</strong>. Can't diagnose what we can't measure. <strong>Every NI lead must have a reason same day.</strong></p>
-    </div>
-    <div class="rec-card sales">
-      <h4>4. Grade-Specific Pitches</h4>
-      <p><strong>Grade 5:</strong> "Build foundation before Grade 6-7 gets harder." <strong>Grade 8:</strong> "4 weeks to board exams — last window." Both have &lt;10% T2P with Fee High dominant.</p>
-    </div>
-  </div>
-
-  <h3>Campaign Reallocation — April 15 Mid-Month Review</h3>
-  <table>
-    <thead><tr><th>Action</th><th>Campaign</th><th>Reason</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge scale">SCALE</span></td><td>Interest_Maths_Engaged</td><td>43% T2P — best Meta campaign</td></tr>
-      <tr><td><span class="badge scale">SCALE</span></td><td>Google Brand KWs</td><td>Best QL-TD%, 21% T2P, high intent</td></tr>
-      <tr><td><span class="badge scale">SCALE</span></td><td>Advantage+Non-OTP</td><td>40% QL-TD%, currently getting 0 budget</td></tr>
-      <tr><td><span class="badge cap">CAP</span></td><td>High_ROAS_Creative</td><td>#1 volume but 8-17% T2P, attracts browsers</td></tr>
-      <tr><td><span class="badge cap">CAP</span></td><td>Google Generic KWs</td><td>18% QL-TD%, 12% T2P, worst full-funnel</td></tr>
-      <tr><td><span class="badge cap">CAP</span></td><td>MEA_Int-Female</td><td>Low sample, no T2P signal yet</td></tr>
-      <tr><td><span class="badge filter">FILTER</span></td><td>All campaigns</td><td>Add Grade 2-8 filter (exclude Grade 0-1)</td></tr>
-    </tbody>
-  </table>
-</div>
+</div><!-- end april panel -->
 
 <!-- CTA -->
 <div class="cta">
-  <h2>Action Item for Today</h2>
-  <p><strong>Close the "Decision Pending" leads.</strong> There are 9 April TDs sitting in "Decision Pending" right now — each worth ~₹88K. With KHDA assessments starting April 27 and board exams in 4-5 weeks, the urgency message has never been stronger. <strong>Pull the list today, assign to ACs, require same-day callback with an expiring slot offer.</strong> If even 5 of 9 close, that's ₹4.4L recovered.</p>
+  <h2>Single Most Important Action</h2>
+  <p><strong>Close the 9 "Decision Pending" leads today.</strong> These parents did the trial and didn't say no. Each is worth ₹88K. KHDA assessments start April 27, board exams in 4-5 weeks. Pull the list, assign to ACs, same-day callback with expiring slot offer. 5 of 9 closing = ₹4.4L recovered.</p>
 </div>
 
-<div style="text-align:center; padding:32px 0 16px; font-size:11px; color:var(--text2);">
-  Data: ME Lead Analysis Sheet (Mar: 499 leads, 123 TDs | Apr: 166 leads, 30 TDs) + April Business Plan<br>
-  Note: School Board data not captured in sheets — recommend adding to lead form for future analysis.
+<div class="foot">
+  Data: ME Lead Analysis Sheet — Mar (499 leads, 123 TDs) · Apr (166 leads, 30 TDs) · APR TD · April Business Plan<br>
+  School Board data not captured in sheets — recommend adding to lead form for future analysis.
 </div>
 
-</div>
+</div><!-- end wrap -->
 
 <script>
-function switchTab(month) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  if (month === 'march') {
-    document.querySelectorAll('.tab-btn')[0].classList.add('active');
-    document.getElementById('tab-march').classList.add('active');
-  } else {
-    document.querySelectorAll('.tab-btn')[1].classList.add('active');
-    document.getElementById('tab-april').classList.add('active');
+function showMonth(m){
+  document.querySelectorAll('.month-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.month-panel').forEach(p=>p.classList.remove('active'));
+  if(m==='mar'){
+    document.querySelectorAll('.month-tab')[0].classList.add('active');
+    document.getElementById('panel-mar').classList.add('active');
+  }else{
+    document.querySelectorAll('.month-tab')[1].classList.add('active');
+    document.getElementById('panel-apr').classList.add('active');
   }
 }
 </script>
-
 </body>
 </html>
