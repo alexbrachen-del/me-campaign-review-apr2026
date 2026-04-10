@@ -272,143 +272,166 @@ tbody tr:hover{background:rgba(108,140,255,.04)}
   <div class="co"><strong>Google T2P miss (-28pp) is 2x worse than Meta (-12pp).</strong> Google "Fee High" rate (42%) is higher than Meta (36%). But Google had an additional problem: ABV collapsed to ₹35K because ACs defaulted to monthly pitch. At proper ₹88K ABV, Google revenue would have been ₹9.7L not ₹4L. <strong>Two fixes: (1) fee objection handling for both channels, (2) ABV pitch enforcement specifically for Google leads.</strong></div>
 </div>
 
-<!-- S5: SCHOOL BOARD T2P -->
+<!-- S5: SCHOOL BOARD ANALYSIS -->
 <div class="card">
-  <h2><span class="n">5</span> School Board T2P Analysis</h2>
-  <div class="desc">Board-level conversion from the school board dataset (373 March leads). Which curriculum parents convert?</div>
+  <h2><span class="n">5</span> School Board Analysis</h2>
+  <div class="desc">373 March leads mapped to school board. Full funnel: QL → TS → TD → Paid by board, channel, and campaign.</div>
 
-  <h3>Overall — Board T2P</h3>
+  <!-- QL DISTRIBUTION -->
+  <h3>QL Distribution by Board — Where Leads Come From</h3>
   <table>
-    <thead><tr><th>School Board</th><th>QLs</th><th>TD</th><th>QL-TD%</th><th>Paid</th><th>T2P%</th><th>Signal</th></tr></thead>
+    <thead><tr><th>Board</th><th>QLs</th><th>% of Total</th><th>TS</th><th>QL-TS%</th><th>TD</th><th>QL-TD%</th><th>Paid</th><th>% of Paid</th><th>T2P%</th><th></th></tr></thead>
     <tbody>
-      <tr><td><strong>CBSE</strong></td><td>98</td><td>50</td><td>51%</td><td>7</td><td><span class="sig r">14%</span></td><td><span class="dot r"></span> Highest volume, poor T2P</td></tr>
-      <tr><td><strong>British/UK</strong></td><td>74</td><td>34</td><td>46%</td><td>6</td><td><span class="sig r">18%</span></td><td><span class="dot y"></span> High volume, below avg T2P</td></tr>
-      <tr><td><strong>IB</strong></td><td>50</td><td>17</td><td>34%</td><td>5</td><td><span class="sig g">29%</span></td><td><span class="dot g"></span> Best T2P among volume boards</td></tr>
-      <tr><td><strong>Indian (CBSE/ICSE)</strong></td><td>42</td><td>3</td><td><span class="sig r">7%</span></td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span> Barely reach trial, zero payments</td></tr>
-      <tr><td><strong>IGCSE/Cambridge</strong></td><td>31</td><td>12</td><td>39%</td><td>1</td><td><span class="sig r">8%</span></td><td><span class="dot r"></span> Trials happen, don't pay</td></tr>
-      <tr><td><strong>US Curriculum</strong></td><td>13</td><td>6</td><td>46%</td><td>2</td><td><span class="sig g">33%</span></td><td><span class="dot g"></span> Small but best T2P</td></tr>
-      <tr><td>ICSE</td><td>11</td><td>5</td><td>45%</td><td>1</td><td>20%</td><td><span class="dot y"></span></td></tr>
+      <tr><td><strong>CBSE</strong></td><td>98</td><td>26%</td><td>53</td><td>54%</td><td>50</td><td>51%</td><td>7</td><td>29%</td><td><span class="sig r">14%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td><strong>British/UK</strong></td><td>74</td><td>20%</td><td>45</td><td>61%</td><td>34</td><td>46%</td><td>6</td><td>25%</td><td><span class="sig r">18%</span></td><td><span class="dot y"></span></td></tr>
+      <tr><td><strong>IB</strong></td><td>50</td><td>13%</td><td>24</td><td>48%</td><td>17</td><td>34%</td><td>5</td><td>21%</td><td><span class="sig g">29%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td><strong>Indian (CBSE/ICSE)</strong></td><td>42</td><td>11%</td><td>16</td><td>38%</td><td>3</td><td><span class="sig r">7%</span></td><td>0</td><td>0%</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td><strong>IGCSE/Cambridge</strong></td><td>31</td><td>8%</td><td>14</td><td>45%</td><td>12</td><td>39%</td><td>1</td><td>4%</td><td><span class="sig r">8%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td><strong>US Curriculum</strong></td><td>13</td><td>3%</td><td>8</td><td>62%</td><td>6</td><td>46%</td><td>2</td><td>8%</td><td><span class="sig g">33%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>ICSE</td><td>11</td><td>3%</td><td>6</td><td>55%</td><td>5</td><td>45%</td><td>1</td><td>4%</td><td>20%</td><td><span class="dot y"></span></td></tr>
+      <tr><td>(Other/Unknown)</td><td>52</td><td>14%</td><td>10</td><td>19%</td><td>2</td><td>4%</td><td>1</td><td>4%</td><td>50%</td><td></td></tr>
+      <tr class="trow"><td>TOTAL</td><td>373</td><td>100%</td><td>178</td><td>48%</td><td>131</td><td>35%</td><td>24</td><td>100%</td><td>18%</td><td></td></tr>
     </tbody>
   </table>
-  <div class="co"><strong>IB parents convert best (29% T2P)</strong> among volume boards. CBSE is biggest volume (98 QLs) but 14% T2P — fee sensitivity likely higher. Indian Curriculum (CBSE/ICSE combined) barely reaches trial (7% QL-TD%) and has 0 payments. <strong>US Curriculum small but 33% T2P — worth exploring.</strong></div>
 
-  <!-- Board x Meta -->
-  <div class="ch-hdr meta-h">BOARD × META</div>
+  <div class="co">
+    <strong>Volume vs Value mismatch:</strong> CBSE is 26% of QLs but only 14% T2P (7 of 50 TDs). IB is 13% of QLs but 29% T2P — delivers 21% of all payments from half the lead volume. <strong>Indian (CBSE/ICSE): 11% of QLs, 0% payments — total funnel leak.</strong>
+  </div>
+
+  <!-- BOARD FUNNEL VISUAL -->
+  <h3>Board Funnel Efficiency — QL to Paid Conversion</h3>
+  <div class="bar-c">
+    <div class="bar-r"><div class="bar-l">IB</div><div class="bar-t"><div class="bar-f g" style="width:82%">29% T2P · 34% QL-TD% · 5 Paid from 50 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">US Curriculum</div><div class="bar-t"><div class="bar-f g" style="width:72%">33% T2P · 46% QL-TD% · 2 Paid from 13 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">ICSE</div><div class="bar-t"><div class="bar-f y" style="width:55%">20% T2P · 45% QL-TD% · 1 Paid from 11 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">British/UK</div><div class="bar-t"><div class="bar-f y" style="width:50%">18% T2P · 46% QL-TD% · 6 Paid from 74 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">CBSE</div><div class="bar-t"><div class="bar-f r" style="width:40%">14% T2P · 51% QL-TD% · 7 Paid from 98 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">IGCSE/Cambridge</div><div class="bar-t"><div class="bar-f r" style="width:25%">8% T2P · 39% QL-TD% · 1 Paid from 31 QLs</div></div></div>
+    <div class="bar-r"><div class="bar-l">Indian (CBSE/ICSE)</div><div class="bar-t"><div class="bar-f r" style="width:5%">0% T2P · 7% QL-TD% · 0 Paid</div></div></div>
+  </div>
+
+  <!-- BOARD × META -->
+  <div class="ch-hdr meta-h">BOARD × META — 254 QLs → 80 TDs → 12 Paid (15% T2P)</div>
+  <table>
+    <thead><tr><th>Board</th><th>QLs</th><th>TS</th><th>TD</th><th>QL-TS%</th><th>QL-TD%</th><th>Paid</th><th>T2P%</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>CBSE</td><td>77</td><td>32</td><td>29</td><td>42%</td><td>38%</td><td>4</td><td><span class="sig r">14%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>British/UK</td><td>46</td><td>29</td><td>21</td><td>63%</td><td>46%</td><td>2</td><td><span class="sig r">10%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>IB</td><td>37</td><td>14</td><td>10</td><td>38%</td><td>27%</td><td>2</td><td><span class="sig y">20%</span></td><td><span class="dot y"></span></td></tr>
+      <tr><td>IGCSE/Cambridge</td><td>27</td><td>11</td><td>9</td><td>41%</td><td>33%</td><td>1</td><td><span class="sig r">11%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>Indian (CBSE/ICSE)</td><td>13</td><td>7</td><td>1</td><td>54%</td><td><span class="sig r">8%</span></td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>US Curriculum</td><td>8</td><td>6</td><td>5</td><td>75%</td><td>62%</td><td>2</td><td><span class="sig g">40%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>ICSE</td><td>8</td><td>3</td><td>2</td><td>38%</td><td>25%</td><td>0</td><td>0%</td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="co"><strong>British/UK on Meta:</strong> Highest QL-TS% (63%) but only 10% T2P — they schedule and trial easily, then don't pay. <strong>US Curriculum on Meta:</strong> 40% T2P from 8 QLs — small but the best converting segment.</div>
+
+  <!-- BOARD × GOOGLE BRAND -->
+  <div class="ch-hdr google-h">BOARD × GOOGLE BRAND — 54 QLs → 34 TDs → 8 Paid (24% T2P)</div>
+  <table>
+    <thead><tr><th>Board</th><th>QLs</th><th>TS</th><th>TD</th><th>QL-TD%</th><th>Paid</th><th>T2P%</th><th></th></tr></thead>
+    <tbody>
+      <tr><td>British/UK</td><td>15</td><td>11</td><td>9</td><td>60%</td><td>2</td><td><span class="sig y">22%</span></td><td><span class="dot y"></span></td></tr>
+      <tr><td>CBSE</td><td>14</td><td>14</td><td>14</td><td><span class="sig g">100%</span></td><td>3</td><td><span class="sig y">21%</span></td><td><span class="dot y"></span></td></tr>
+      <tr><td>Indian (CBSE/ICSE)</td><td>11</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td><td>0</td><td>—</td><td><span class="dot r"></span></td></tr>
+      <tr><td>IB</td><td>6</td><td>6</td><td>5</td><td><span class="sig g">83%</span></td><td>2</td><td><span class="sig g">40%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>ICSE</td><td>3</td><td>3</td><td>3</td><td>100%</td><td>1</td><td><span class="sig g">33%</span></td><td><span class="dot g"></span></td></tr>
+    </tbody>
+  </table>
+  <div class="co"><strong>IB on Google Brand: 40% T2P, 83% QL-TD%</strong> — best segment in the entire dataset. CBSE on Google Brand: 100% QL-TD% but only 21% T2P — they all trial but most don't pay. <strong>Indian (CBSE/ICSE): 11 QLs, 0 TDs</strong> — brand search leads that never schedule.</div>
+
+  <!-- BOARD × GOOGLE OTHER -->
+  <h3>Board × Google Other (Generic/Location) — 65 QLs → 17 TDs → 4 Paid</h3>
   <table>
     <thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>QL-TD%</th><th>Paid</th><th>T2P%</th><th></th></tr></thead>
     <tbody>
-      <tr><td>CBSE</td><td>77</td><td>29</td><td>38%</td><td>4</td><td><span class="sig r">14%</span></td><td><span class="dot r"></span></td></tr>
-      <tr><td>British/UK</td><td>46</td><td>21</td><td>46%</td><td>2</td><td><span class="sig r">10%</span></td><td><span class="dot r"></span></td></tr>
-      <tr><td>IB</td><td>37</td><td>10</td><td>27%</td><td>2</td><td><span class="sig y">20%</span></td><td><span class="dot y"></span></td></tr>
-      <tr><td>IGCSE/Cambridge</td><td>27</td><td>9</td><td>33%</td><td>1</td><td><span class="sig r">11%</span></td><td><span class="dot r"></span></td></tr>
-      <tr><td>Indian (CBSE/ICSE)</td><td>13</td><td>1</td><td>8%</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
-      <tr><td>US Curriculum</td><td>8</td><td>5</td><td>62%</td><td>2</td><td><span class="sig g">40%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>Indian (CBSE/ICSE)</td><td>18</td><td>2</td><td><span class="sig r">11%</span></td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>British/UK</td><td>13</td><td>4</td><td>31%</td><td>2</td><td><span class="sig g">50%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>IB</td><td>7</td><td>2</td><td>29%</td><td>1</td><td><span class="sig g">50%</span></td><td><span class="dot g"></span></td></tr>
+      <tr><td>CBSE</td><td>7</td><td>7</td><td><span class="sig g">100%</span></td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
+      <tr><td>IGCSE/Cambridge</td><td>3</td><td>2</td><td>67%</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
     </tbody>
   </table>
-  <div class="co"><strong>British/UK on Meta: 10% T2P</strong> — worst board-channel combination with meaningful volume (46 QLs, 21 TDs, only 2 payments). US Curriculum on Meta: 40% T2P — small but converts well.</div>
+  <div class="co"><strong>CBSE on Google Generic: 100% QL-TD% but 0% T2P (7 TDs, 0 payments).</strong> They trial easily from generic search but never pay. British/UK and IB on Google Generic actually convert well (50% T2P each).</div>
 
-  <!-- Board x Google -->
-  <div class="ch-hdr google-h">BOARD × GOOGLE</div>
-  <table>
-    <thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>QL-TD%</th><th>Paid</th><th>T2P%</th><th></th></tr></thead>
-    <tbody>
-      <tr><td>British/UK (Brand)</td><td>15</td><td>9</td><td>60%</td><td>2</td><td><span class="sig y">22%</span></td><td><span class="dot y"></span></td></tr>
-      <tr><td>CBSE (Brand)</td><td>14</td><td>14</td><td>100%</td><td>3</td><td><span class="sig y">21%</span></td><td><span class="dot y"></span></td></tr>
-      <tr><td>Indian CBSE/ICSE (Brand)</td><td>11</td><td>0</td><td><span class="sig r">0%</span></td><td>0</td><td>—</td><td><span class="dot r"></span></td></tr>
-      <tr><td>IB (Brand)</td><td>6</td><td>5</td><td>83%</td><td>2</td><td><span class="sig g">40%</span></td><td><span class="dot g"></span></td></tr>
-      <tr><td>British/UK (Generic)</td><td>10</td><td>3</td><td>30%</td><td>2</td><td><span class="sig g">67%</span></td><td><span class="dot g"></span></td></tr>
-      <tr><td>CBSE (Generic)</td><td>6</td><td>6</td><td>100%</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
-      <tr><td>Indian CBSE/ICSE (Generic)</td><td>13</td><td>1</td><td>8%</td><td>0</td><td><span class="sig r">0%</span></td><td><span class="dot r"></span></td></tr>
-    </tbody>
-  </table>
-  <div class="co"><strong>IB parents on Google Brand: 40% T2P</strong> — highest converting segment. Indian Curriculum (CBSE/ICSE combined) has 0% QL-TD% on Google Brand (11 QLs, 0 trials) — these leads never even schedule. <strong>CBSE on Google Generic: 100% QL-TD% but 0% T2P</strong> — they trial easily but never pay.</div>
-
-  <!-- Board x Campaign -->
+  <!-- BOARD × CAMPAIGN -->
   <h3>Board × Campaign — Where T2P Breaks</h3>
   <div class="cols">
     <div class="col-card">
-      <h4>Interest_Maths — 45 QLs, 38% T2P (BEST)</h4>
-      <table>
-        <tbody>
-          <tr><td>CBSE</td><td>22 QL → 2 TD → 1 Paid</td><td><span class="sig g">50%</span></td></tr>
-          <tr><td>IB</td><td>7 QL → 2 TD → 1 Paid</td><td><span class="sig g">50%</span></td></tr>
-          <tr><td>British/UK</td><td>3 QL → 3 TD → 1 Paid</td><td><span class="sig g">33%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px">Converts across all boards. Best campaign regardless of curriculum.</p>
+      <h4>Interest_Maths — 45 QLs, 38% T2P <span class="badge sc">BEST</span></h4>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>CBSE</td><td>22</td><td>2</td><td>1</td><td><span class="sig g">50%</span></td></tr>
+        <tr><td>IB</td><td>7</td><td>2</td><td>1</td><td><span class="sig g">50%</span></td></tr>
+        <tr><td>British/UK</td><td>3</td><td>3</td><td>1</td><td><span class="sig g">33%</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px">Converts across ALL boards. Only campaign with 30%+ T2P on every board that reaches trial.</p>
     </div>
     <div class="col-card">
-      <h4>Google Brand KWs — 52 QLs, 25% T2P</h4>
-      <table>
-        <tbody>
-          <tr><td>IB</td><td>6 QL → 5 TD → 2 Paid</td><td><span class="sig g">40%</span></td></tr>
-          <tr><td>ICSE</td><td>3 QL → 3 TD → 1 Paid</td><td><span class="sig g">33%</span></td></tr>
-          <tr><td>British/UK</td><td>14 QL → 8 TD → 2 Paid</td><td><span class="sig y">25%</span></td></tr>
-          <tr><td>CBSE</td><td>13 QL → 13 TD → 3 Paid</td><td><span class="sig y">23%</span></td></tr>
-          <tr><td>Indian</td><td>11 QL → 0 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px">IB parents convert best (40%). Indian Curriculum never even reaches trial on this campaign.</p>
+      <h4>Google Brand KWs — 52 QLs, 25% T2P <span class="badge st">STAR</span></h4>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>IB</td><td>6</td><td>5</td><td>2</td><td><span class="sig g">40%</span></td></tr>
+        <tr><td>ICSE</td><td>3</td><td>3</td><td>1</td><td><span class="sig g">33%</span></td></tr>
+        <tr><td>British/UK</td><td>14</td><td>8</td><td>2</td><td><span class="sig y">25%</span></td></tr>
+        <tr><td>CBSE</td><td>13</td><td>13</td><td>3</td><td><span class="sig y">23%</span></td></tr>
+        <tr><td>Indian (CBSE/ICSE)</td><td>11</td><td>0</td><td>0</td><td><span class="sig r">—</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px">IB = best (40%). Indian Curriculum: 0 trials from 11 QLs — they search for Cuemath but never schedule.</p>
     </div>
   </div>
   <div class="cols">
     <div class="col-card">
-      <h4>High_ROAS_Creative — 44 QLs, 14% T2P (TRAP)</h4>
-      <table>
-        <tbody>
-          <tr><td>CBSE</td><td>10 QL → 10 TD → 2 Paid</td><td><span class="sig y">20%</span></td></tr>
-          <tr><td>IB</td><td>5 QL → 3 TD → 1 Paid</td><td>33%</td></tr>
-          <tr><td>British/UK</td><td>12 QL → 5 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>IGCSE</td><td>2 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px"><strong>British/UK parents: 0% T2P</strong> on this campaign (5 TDs, 0 payments). Campaign targets browsing parents — British/UK parents browse but don't buy.</p>
+      <h4>High_ROAS_Creative — 44 QLs, 14% T2P <span class="badge cp">TRAP</span></h4>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>IB</td><td>5</td><td>3</td><td>1</td><td>33%</td></tr>
+        <tr><td>CBSE</td><td>10</td><td>10</td><td>2</td><td><span class="sig y">20%</span></td></tr>
+        <tr><td>British/UK</td><td>12</td><td>5</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>IGCSE/Cambridge</td><td>2</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px"><strong>British/UK: 0% from 5 TDs.</strong> This campaign attracts British parents who browse but don't buy.</p>
     </div>
     <div class="col-card">
       <h4>Dubai_location2_Signup — 47 QLs, 18% T2P</h4>
-      <table>
-        <tbody>
-          <tr><td>US Curriculum</td><td>3 QL → 2 TD → 1 Paid</td><td><span class="sig g">50%</span></td></tr>
-          <tr><td>CBSE</td><td>4 QL → 3 TD → 1 Paid</td><td><span class="sig g">33%</span></td></tr>
-          <tr><td>British/UK</td><td>24 QL → 7 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>IB</td><td>5 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>IGCSE</td><td>2 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px"><strong>British/UK: 0% T2P from 7 TDs</strong> — Dubai location targeting attracts British curriculum parents who find it too expensive. This is the biggest board-campaign leak.</p>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>US Curriculum</td><td>3</td><td>2</td><td>1</td><td><span class="sig g">50%</span></td></tr>
+        <tr><td>CBSE</td><td>4</td><td>3</td><td>1</td><td><span class="sig g">33%</span></td></tr>
+        <tr><td>British/UK</td><td>24</td><td>7</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>IB</td><td>5</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>IGCSE/Cambridge</td><td>2</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px"><strong>British/UK: 24 QLs, 7 TDs, 0 Paid.</strong> Biggest board-campaign leak in the data. Location targeting = fee-sensitive British families.</p>
     </div>
   </div>
   <div class="cols">
     <div class="col-card">
       <h4>MEA_Int-Female — 38 QLs, 10% T2P</h4>
-      <table>
-        <tbody>
-          <tr><td>IGCSE</td><td>7 QL → 2 TD → 1 Paid</td><td><span class="sig g">50%</span></td></tr>
-          <tr><td>CBSE</td><td>14 QL → 5 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>IB</td><td>6 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px">CBSE parents on this campaign: 0% T2P despite 5 TDs. Only IGCSE converts.</p>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>IGCSE/Cambridge</td><td>7</td><td>2</td><td>1</td><td><span class="sig g">50%</span></td></tr>
+        <tr><td>CBSE</td><td>14</td><td>5</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>IB</td><td>6</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px">CBSE: 14 QLs, 5 TDs, 0 Paid. Only IGCSE converts on this campaign.</p>
     </div>
     <div class="col-card">
       <h4>Dubai Location 2 (Google) — 43 QLs, 7% T2P</h4>
-      <table>
-        <tbody>
-          <tr><td>British/UK</td><td>4 QL → 3 TD → 1 Paid</td><td><span class="sig g">33%</span></td></tr>
-          <tr><td>CBSE</td><td>15 QL → 6 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>IGCSE</td><td>6 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-          <tr><td>ICSE</td><td>4 QL → 2 TD → 0 Paid</td><td><span class="sig r">0%</span></td></tr>
-        </tbody>
-      </table>
-      <p style="font-size:11px;color:var(--t2);margin-top:6px">CBSE on Google Generic/Location: 0% T2P from 6 TDs — they trial easily but never convert.</p>
+      <table><thead><tr><th>Board</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th></tr></thead><tbody>
+        <tr><td>British/UK</td><td>4</td><td>3</td><td>1</td><td><span class="sig g">33%</span></td></tr>
+        <tr><td>CBSE</td><td>15</td><td>6</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>IGCSE/Cambridge</td><td>6</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+        <tr><td>ICSE</td><td>4</td><td>2</td><td>0</td><td><span class="sig r">0%</span></td></tr>
+      </tbody></table>
+      <p style="font-size:11px;color:var(--t2);margin-top:6px">CBSE: 15 QLs, 6 TDs, 0 Paid — trial easily via generic search, never pay.</p>
     </div>
   </div>
 
+  <!-- INSIGHTS -->
+  <h3>Board-Level Insights</h3>
   <div class="co r">
-    <strong>3 board-level patterns that matter:</strong><br>
-    1. <strong>IB parents are the best converters</strong> — 29% T2P overall, 40% on Google Brand, 50% on Interest_Maths. Willing to pay premium for quality.<br>
-    2. <strong>British/UK parents trial but don't pay on location campaigns</strong> — 0% T2P on Dubai_location2 (7 TDs) and High_ROAS (5 TDs). They browse, they try, they leave. Fee sensitivity is highest here.<br>
-    3. <strong>Indian Curriculum (CBSE/ICSE combined) never reaches trial</strong> — 7% QL-TD%. These are likely low-intent or mismatched leads. Filtering opportunity.
+    <strong>5 patterns from the board data:</strong><br><br>
+    <strong>1. IB = highest-value segment.</strong> 29% T2P overall, 40% on Google Brand, 50% on Interest_Maths. Only 13% of QLs but 21% of payments. These parents value quality and pay premium. <strong>Action: IB-specific creatives ("IB Math exam prep"), increase share of IB targeting.</strong><br><br>
+    <strong>2. British/UK on location campaigns = biggest leak.</strong> Dubai_location2: 24 QLs → 7 TDs → 0 Paid. High_ROAS: 12 QLs → 5 TDs → 0 Paid. That's 12 wasted trials. Location targeting reaches British families who browse but balk at price. <strong>Action: Exclude or reduce British/UK targeting on location-based campaigns.</strong><br><br>
+    <strong>3. CBSE = volume play with poor conversion.</strong> 26% of QLs, 38% of TDs, but only 14% T2P. Exception: CBSE on Interest_Maths = 50% T2P. Problem is campaign-specific, not board-wide. <strong>Action: Route CBSE parents to Interest_Maths, not High_ROAS or location campaigns.</strong><br><br>
+    <strong>4. Indian (CBSE/ICSE) never reaches trial.</strong> 42 QLs, 7% QL-TD%, 0% T2P. On Google Brand: 11 QLs, 0 trials. These leads sign up but never schedule. <strong>Action: Review lead quality — likely India-based parents exploring for UAE relatives, or wrong intent match.</strong><br><br>
+    <strong>5. CBSE on Google Generic = false positive.</strong> 100% QL-TD% (all 7 trial) but 0% T2P. They're easy to schedule but never pay. Generic search + CBSE = tire-kickers. <strong>Action: Don't count Google Generic CBSE trials as pipeline — they have near-zero close probability.</strong>
   </div>
 </div>
 
