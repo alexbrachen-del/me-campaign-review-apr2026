@@ -394,10 +394,44 @@
     <strong>Key read:</strong> Paid channels (Meta + Google) have the worst T2P at 19% and 18%. Organic/Referrals convert 2-3x better. Paid leads have a fundamentally different objection profile — "Fee High" is the dominant reason.
   </div>
 
-  <h3>Campaign-Level Performance</h3>
+  <h3>Google — Campaign Plan vs Actual</h3>
   <table>
     <thead>
-      <tr><th>Campaign</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>#1 NI Reason</th><th>Status</th></tr>
+      <tr><th>Campaign</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>Plan QL-TD%</th><th>Actual QL-TD%</th><th>Plan CPT</th><th>Actual CPT</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Brand Keywords</td><td>₹2.5L</td><td>₹2.5L</td><td>35</td><td>49</td><td>52%</td><td><span class="sig green">59%</span></td><td>₹13,736</td><td><span class="sig green">₹8,506</span></td><td><span class="badge star">STAR</span></td></tr>
+      <tr><td>Generic KWs</td><td>₹2.0L</td><td>₹2.9L</td><td>28</td><td>49</td><td>29%</td><td><span class="sig red">18%</span></td><td>₹24,187</td><td><span class="sig red">₹32,732</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Meta — Campaign Plan vs Actual</h3>
+  <table>
+    <thead>
+      <tr><th>Campaign</th><th>Plan Spend</th><th>Actual Spend</th><th>Plan QL</th><th>Actual QL</th><th>Plan QL-TD%</th><th>Actual QL-TD%</th><th>Plan CPT</th><th>Actual CPT</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Dubai Location 2 (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>36</td><td>40</td><td>33%</td><td><span class="sig green">40%</span></td><td>₹21,212</td><td><span class="sig green">₹14,188</span></td><td><span class="badge scale">STRONG</span></td></tr>
+      <tr><td>Dubai Location 2 (LP)</td><td>₹3.0L</td><td>₹4.7L</td><td>37</td><td>45</td><td>47%</td><td><span class="sig red">33%</span></td><td>₹17,399</td><td><span class="sig red">₹31,598</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
+      <tr><td>MEA_Int-Female (IF)</td><td>₹2.5L</td><td>₹2.3L</td><td>35</td><td>36</td><td>35%</td><td><span class="sig red">22%</span></td><td>₹20,260</td><td><span class="sig red">₹28,380</span></td><td><span class="badge cap">FUNNEL BROKE</span></td></tr>
+      <tr><td>Interest_Maths_Engaged (IF)</td><td>₹3.5L</td><td>₹2.8L</td><td>48</td><td>41</td><td>36%</td><td><span class="sig red">22%</span></td><td>₹19,865</td><td><span class="sig red">₹31,585</span></td><td><span class="badge monitor">QL OK, FUNNEL BROKE</span></td></tr>
+      <tr><td>Int_Premium_Brands</td><td>₹1.5L</td><td>₹1.5L</td><td>21</td><td>22</td><td>32%</td><td><span class="sig red">9%</span></td><td>₹21,605</td><td><span class="sig red">₹75,504</span></td><td><span class="badge pause">PAUSE</span></td></tr>
+      <tr><td>Advantage+Non-OTP (IF)</td><td>₹2.5L</td><td>₹0.8L</td><td>36</td><td>10</td><td>38%</td><td><span class="sig green">40%</span></td><td>₹18,667</td><td>₹20,887</td><td><span class="badge cap">STARVED</span></td></tr>
+      <tr><td>High_ROAS_Creative (LP)</td><td>₹3.0L</td><td>₹4.0L</td><td>37</td><td>41</td><td>38%</td><td><span class="sig red">32%</span></td><td>₹21,744</td><td><span class="sig red">₹30,722</span></td><td><span class="badge cap">OVERSPENT</span></td></tr>
+      <tr style="opacity:0.5"><td>Dubai-Premium-Aud-3 (LP)</td><td>₹3.0L</td><td>₹0</td><td>39</td><td>0</td><td>37%</td><td>—</td><td>₹20,299</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
+      <tr style="opacity:0.5"><td>HNIs Targeting</td><td>₹2.0L</td><td>₹0</td><td>13</td><td>0</td><td>45%</td><td>—</td><td>₹34,074</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
+      <tr style="opacity:0.5"><td>CTF_Parents_Targeting</td><td>₹2.0L</td><td>₹0</td><td>30</td><td>0</td><td>19%</td><td>—</td><td>₹34,632</td><td>—</td><td><span class="badge pause">NEVER LAUNCHED</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout red">
+    <strong>₹7L in planned campaigns never launched</strong> (Dubai-Premium-Aud-3, HNIs, CTF_Parents). Budget leaked into Dubai_location2_LP and High_ROAS_Creative — both overspent AND underperformed. Meanwhile, Advantage+Non-OTP had the best QL-TD% (40%) but was starved at ₹0.8L vs ₹2.5L planned.
+  </div>
+
+  <h3>Campaign-Level T2P Performance (Full Funnel View)</h3>
+  <table>
+    <thead>
+      <tr><th>Campaign</th><th>QLs</th><th>TD</th><th>Paid</th><th>T2P%</th><th>#1 NI Reason</th><th>Verdict</th></tr>
     </thead>
     <tbody>
       <tr><td>Google Brand KWs</td><td>44</td><td>28</td><td>6</td><td><span class="sig yellow">21%</span></td><td>Fee High (9)</td><td><span class="badge star">STAR</span></td></tr>
@@ -587,25 +621,77 @@
   </div>
 </div>
 
-<!-- SECTION 3: APRIL QL DELIVERY -->
+<!-- SECTION 3: APRIL PLAN vs ACTUAL -->
 <div class="section">
-  <h2><span class="num">3</span> April QL Delivery — Plan vs Actual (10 Days)</h2>
-  <div class="section-desc">33% of month elapsed | Prorated against full-month plan</div>
+  <h2><span class="num">3</span> April Plan vs Actual (10 Days In — 33% of Month)</h2>
+  <div class="section-desc">Channel-level full funnel plan vs prorated actuals</div>
 
-  <h3>By Channel</h3>
+  <h3>Channel-Level Plan vs Actual (Full Funnel)</h3>
   <table>
-    <thead><tr><th>Channel</th><th>Apr Plan</th><th>Prorated (33%)</th><th>Actual MTD</th><th>Pace</th><th>Signal</th></tr></thead>
+    <thead><tr><th>Channel</th><th>Plan Spend</th><th>Plan QL</th><th>MTD QL</th><th>Pace</th><th>Plan TD</th><th>MTD TD</th><th>Plan Enrolled</th><th>MTD Paid</th><th>Plan Rev</th><th>Signal</th></tr></thead>
     <tbody>
-      <tr><td><strong>Perf Meta</strong></td><td>283</td><td>94</td><td>75</td><td>80%</td><td><span class="dot yellow"></span></td></tr>
-      <tr><td><strong>Perf Google</strong></td><td>153</td><td>51</td><td>57</td><td><span class="sig green">112%</span></td><td><span class="dot green"></span></td></tr>
-      <tr><td><strong>Referrals</strong></td><td>40</td><td>13</td><td>6</td><td><span class="sig red">46%</span></td><td><span class="dot red"></span></td></tr>
-      <tr><td><strong>Organic</strong></td><td>35</td><td>12</td><td>26</td><td><span class="sig green">217%</span></td><td><span class="dot green"></span></td></tr>
-      <tr><td><strong>Others</strong></td><td>15</td><td>5</td><td>4</td><td>80%</td><td><span class="dot yellow"></span></td></tr>
-      <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>476</strong></td><td><strong>159</strong></td><td><strong>168</strong></td><td><strong><span class="sig green">106%</span></strong></td><td><span class="dot green"></span></td></tr>
+      <tr>
+        <td><strong>Perf Meta</strong></td><td>₹21.0L</td><td>283</td><td>75</td><td>80%</td><td>100</td><td>13</td><td>30</td><td>1</td><td>₹26.0L</td><td><span class="dot yellow"></span></td>
+      </tr>
+      <tr>
+        <td><strong>Perf Google</strong></td><td>₹10.5L</td><td>153</td><td>57</td><td><span class="sig green">112%</span></td><td>55</td><td>7</td><td>22</td><td>2</td><td>₹19.4L</td><td><span class="dot green"></span></td>
+      </tr>
+      <tr>
+        <td><strong>Referrals</strong></td><td>—</td><td>40</td><td>6</td><td><span class="sig red">46%</span></td><td>18</td><td>0</td><td>14</td><td>0</td><td>₹12.3L</td><td><span class="dot red"></span></td>
+      </tr>
+      <tr>
+        <td><strong>Organic</strong></td><td>—</td><td>35</td><td>26</td><td><span class="sig green">217%</span></td><td>15</td><td>2</td><td>7</td><td>0</td><td>₹6.3L</td><td><span class="dot green"></span></td>
+      </tr>
+      <tr>
+        <td><strong>Others</strong></td><td>—</td><td>15</td><td>4</td><td>80%</td><td>8</td><td>1</td><td>4</td><td>1</td><td>₹3.2L</td><td><span class="dot yellow"></span></td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>TOTAL</strong></td><td><strong>₹31.5L</strong></td><td><strong>476</strong></td><td><strong>168</strong></td><td><strong><span class="sig green">106%</span></strong></td><td><strong>196</strong></td><td><strong>30</strong></td><td><strong>73</strong></td><td><strong>4</strong></td><td><strong>₹65.0L</strong></td><td><span class="dot green"></span></td>
+      </tr>
     </tbody>
   </table>
 
-  <h3>By Campaign (Apr 1–10)</h3>
+  <div class="callout yellow">
+    <strong>QL pace is on track (106%)</strong> but downstream conversion is lagging. At current pace: 30 TDs in 10 days = ~90 for month vs 196 plan. 4 payments in 10 days = ~12 vs 73 plan. The gap is in trial scheduling (23% QL-TS vs 36% target) and T2P (13% vs 38% plan).
+  </div>
+
+  <h3>April Plan vs Actual — Key Metrics by Channel</h3>
+  <div class="compare-row">
+    <div class="compare-card">
+      <h4>Performance Meta — Apr Plan vs MTD</h4>
+      <table class="detail-table">
+        <tbody>
+          <tr><td>Plan Spend</td><td>₹21.0L</td></tr>
+          <tr><td>Plan CPQL</td><td>₹7,420</td></tr>
+          <tr><td>Plan QL → MTD Actual</td><td>283 → 75 (80% pace)</td></tr>
+          <tr><td>Plan QL-TD% → MTD</td><td>35% → 17%</td></tr>
+          <tr><td>Plan TD → MTD</td><td>100 → 13</td></tr>
+          <tr><td>Plan TD-En% → MTD</td><td>30% → 8%</td></tr>
+          <tr><td>Plan Enrolled → MTD Paid</td><td>30 → 1</td></tr>
+          <tr><td>Plan Revenue</td><td>₹26.0L</td></tr>
+          <tr><td>Plan ROAS</td><td>1.26x</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-card">
+      <h4>Performance Google — Apr Plan vs MTD</h4>
+      <table class="detail-table">
+        <tbody>
+          <tr><td>Plan Spend</td><td>₹10.5L (2.3x Mar)</td></tr>
+          <tr><td>Plan CPQL</td><td>₹6,863</td></tr>
+          <tr><td>Plan QL → MTD Actual</td><td>153 → 57 (112% pace)</td></tr>
+          <tr><td>Plan QL-TD% → MTD</td><td>36% → 12%</td></tr>
+          <tr><td>Plan TD → MTD</td><td>55 → 7</td></tr>
+          <tr><td>Plan TD-En% → MTD</td><td>40% → 29%</td></tr>
+          <tr><td>Plan Enrolled → MTD Paid</td><td>22 → 2</td></tr>
+          <tr><td>Plan Revenue</td><td>₹19.4L</td></tr>
+          <tr><td>Plan ROAS</td><td>1.84x</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>April QL Delivery by Campaign (MTD)</h3>
   <div class="bar-chart">
     <div class="bar-row"><div class="bar-label">High_ROAS_Creative</div><div class="bar-track"><div class="bar-fill yellow" style="width:80%">32 (19%)</div></div></div>
     <div class="bar-row"><div class="bar-label">Google_Generic_KWs</div><div class="bar-track"><div class="bar-fill red" style="width:57%">23 (14%)</div></div></div>
@@ -614,9 +700,13 @@
     <div class="bar-row"><div class="bar-label">Interest_Maths_Engaged</div><div class="bar-track"><div class="bar-fill green" style="width:33%">13 (8%)</div></div></div>
     <div class="bar-row"><div class="bar-label">MEA_Int-Female</div><div class="bar-track"><div class="bar-fill blue" style="width:30%">12 (7%)</div></div></div>
     <div class="bar-row"><div class="bar-label">Dubai Location 2</div><div class="bar-track"><div class="bar-fill blue" style="width:25%">10 (6%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">MEA_Dgen_Statics</div><div class="bar-track"><div class="bar-fill purple" style="width:15%">6 (4%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Search_Competitors</div><div class="bar-track"><div class="bar-fill purple" style="width:10%">4 (2%)</div></div></div>
-    <div class="bar-row"><div class="bar-label">Advantage+Non-OTP</div><div class="bar-track"><div class="bar-fill red" style="width:3%">1</div></div></div>
+    <div class="bar-row"><div class="bar-label">MEA_Dgen_Statics</div><div class="bar-track"><div class="bar-fill purple" style="width:15%">6 (4%) NEW</div></div></div>
+    <div class="bar-row"><div class="bar-label">Search_Competitors</div><div class="bar-track"><div class="bar-fill purple" style="width:10%">4 (2%) NEW</div></div></div>
+    <div class="bar-row"><div class="bar-label">Advantage+Non-OTP</div><div class="bar-track"><div class="bar-fill red" style="width:3%">1 — STARVED AGAIN</div></div></div>
+  </div>
+
+  <div class="callout">
+    <strong>Campaign-level plan not available for April</strong> (business plan was done at channel level). Tracking actuals by campaign above. Key watch: High_ROAS_Creative is #1 source (32 QLs) but had 8% T2P in March. Google scaling is working — Brand KWs + Generic together = 36 QLs (21% of total).
   </div>
 </div>
 
